@@ -1,0 +1,18 @@
+.navbar{
+  background-color:#de0200;
+}
+a{
+  color: white;
+}
+a:hover{
+  background-color: #de0200;
+  color: black;
+}
+.navbar-dropdown{
+  background-color: #de0200;
+}
+.navbar-link:hover{
+  text-decoration: none;
+  background-color: #de0200;
+  color: black;
+}
