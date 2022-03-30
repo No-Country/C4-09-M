@@ -18,7 +18,13 @@
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
+<<<<<<< HEAD
     "bulma-carousel": "^4.0.24",
+=======
+    "bulma": "^0.9.3",
+    "bulma-carousel": "^4.0.24",
+    "font-awesome": "^4.7.0",
+>>>>>>> eedf7b30d7b65e00226389d4e43cd92c8e42c820
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
