@@ -5,13 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductsCarouselComponent } from './components/products-carousel/products-carousel.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     LoguinComponent,
-    ProductsCarouselComponent
+    ProductsCarouselComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,
