@@ -7,7 +7,6 @@
 }
 
 body{
-    background-image: url(../images/bg4.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -35,7 +34,7 @@ main{
     justify-content: center;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    background-color: rgba(248, 8, 20, 0.856);
+    background-color: rgb(222, 2, 0);
 
 }
 
