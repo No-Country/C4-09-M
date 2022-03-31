@@ -23,3 +23,4 @@ public abstract class BaseEntity implements Serializable {
     private boolean deleted = Boolean.FALSE;
 
 }
+

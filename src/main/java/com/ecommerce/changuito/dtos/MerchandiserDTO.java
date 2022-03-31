@@ -23,7 +23,7 @@ public class MerchandiserDTO {
 
     private String cuit;
 
-    private Integer city;
+    private Integer idCity;
 
     private String street;
 
@@ -32,5 +32,5 @@ public class MerchandiserDTO {
     private LocalDate updateDate;
 
     private String creationDate;
-
 }
+

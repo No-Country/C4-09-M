@@ -8,6 +8,7 @@ import org.hibernate.annotations.Where;
 import org.modelmapper.internal.bytebuddy.implementation.bind.annotation.This;
 import org.springframework.format.annotation.DateTimeFormat;
 import com.ecommerce.changuito.entities.City.CityEnum;
+import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -35,6 +36,7 @@ public class MerchandiserEntity extends BaseEntity{
     private String cuit;
 
     //TODO: agregar relación con la city
+
     @Column(name="id_city")
     private Integer idCity;
 
@@ -51,6 +53,7 @@ public class MerchandiserEntity extends BaseEntity{
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate creationDate = LocalDate.now();
 
+
     public CityEnum getIdCity() {
         return CityEnum.parse(this.idCity);
     }
@@ -60,3 +63,4 @@ public class MerchandiserEntity extends BaseEntity{
     }
 
 }
+
