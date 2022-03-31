@@ -36,7 +36,7 @@ public class MerchandiserEntity extends BaseEntity{
 
     //TODO: agregar relación con la city
     @Column(name="id_city")
-    private Integer idCity;
+    private Long idCity;
 
     private String street;
 
@@ -51,12 +51,12 @@ public class MerchandiserEntity extends BaseEntity{
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate creationDate = LocalDate.now();
 
-    public CityEnum getIdCity() {
+   /* public CityEnum getIdCity() {
         return CityEnum.parse(this.idCity);
     }
 
     public void setId(CityEnum idCity) {
         this.idCity = idCity.getValue();
     }
-
+*/
 }

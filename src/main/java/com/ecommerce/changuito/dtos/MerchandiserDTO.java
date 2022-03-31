@@ -23,7 +23,7 @@ public class MerchandiserDTO {
 
     private String cuit;
 
-    private Integer city;
+    private Long idCity;
 
     private String street;
 

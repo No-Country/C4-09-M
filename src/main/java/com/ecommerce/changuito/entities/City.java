@@ -40,10 +40,10 @@ public class City extends BaseEntity{
             return value;
         }
 
-        public static CityEnum parse(Integer id) {
+        public static CityEnum parse(Long idCity) {
             CityEnum status = null; // Default
             for (CityEnum item : CityEnum.values()) {
-                if (item.getValue().equals(id)) {
+                if (item.getValue().equals(idCity)) {
                     status = item;
                     break;
                 }
