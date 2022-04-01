@@ -6,7 +6,11 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductsCarouselComponent } from './components/products-carousel/products-carousel.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+<<<<<<< HEAD
 import { RegistrationUsersComponent } from './components/registration-users/registration-users.component';
+=======
+import { FooterComponent } from './components/footer/footer.component';
+>>>>>>> 541796b269de583f491023209fec08b74b9e6022
 
 @NgModule({
   declarations: [
@@ -15,7 +19,11 @@ import { RegistrationUsersComponent } from './components/registration-users/regi
     LoguinComponent,
     ProductsCarouselComponent,
     AdminDashboardComponent,
+<<<<<<< HEAD
     RegistrationUsersComponent
+=======
+    FooterComponent
+>>>>>>> 541796b269de583f491023209fec08b74b9e6022
   ],
   imports: [
     BrowserModule,
