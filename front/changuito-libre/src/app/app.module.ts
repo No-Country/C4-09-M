@@ -6,11 +6,10 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductsCarouselComponent } from './components/products-carousel/products-carousel.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
-<<<<<<< HEAD
+import { MerchandiserDashboardComponent } from './components/merchandiser-dashboard/merchandiser-dashboard.component';
 import { RegistrationUsersComponent } from './components/registration-users/registration-users.component';
-=======
 import { FooterComponent } from './components/footer/footer.component';
->>>>>>> 541796b269de583f491023209fec08b74b9e6022
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -19,11 +18,10 @@ import { FooterComponent } from './components/footer/footer.component';
     LoguinComponent,
     ProductsCarouselComponent,
     AdminDashboardComponent,
-<<<<<<< HEAD
-    RegistrationUsersComponent
-=======
-    FooterComponent
->>>>>>> 541796b269de583f491023209fec08b74b9e6022
+    MerchandiserDashboardComponent,
+    RegistrationUsersComponent,
+    FooterComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
