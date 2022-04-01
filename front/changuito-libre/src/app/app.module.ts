@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductsCarouselComponent } from './components/products-carousel/products-carousel.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { MerchandiserDashboardComponent } from './components/merchandiser-dashboard/merchandiser-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
     NavbarComponent,
     LoguinComponent,
     ProductsCarouselComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    MerchandiserDashboardComponent
   ],
   imports: [
     BrowserModule,
