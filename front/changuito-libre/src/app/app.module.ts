@@ -7,6 +7,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductsCarouselComponent } from './components/products-carousel/products-carousel.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { MerchandiserDashboardComponent } from './components/merchandiser-dashboard/merchandiser-dashboard.component';
+import { RegistrationUsersComponent } from './components/registration-users/registration-users.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { MerchandiserDashboardComponent } from './components/merchandiser-dashbo
     LoguinComponent,
     ProductsCarouselComponent,
     AdminDashboardComponent,
-    MerchandiserDashboardComponent
+    MerchandiserDashboardComponent,
+    RegistrationUsersComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
