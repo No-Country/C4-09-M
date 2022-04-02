@@ -3,6 +3,7 @@ package com.ecommerce.changuito.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -51,6 +52,7 @@ public class MerchandiserEntity extends BaseEntity{
 
     @Column(name = "creation_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate creationDate = LocalDate.now();
+    @CreationTimestamp
+    private LocalDate creationDate ;
 
 }

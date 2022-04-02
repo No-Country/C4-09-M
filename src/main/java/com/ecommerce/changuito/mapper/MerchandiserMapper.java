@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class MerchandiserMapper {
@@ -20,9 +22,8 @@ public class MerchandiserMapper {
     }
 
     public MerchandiserEntity merchandiserDto2Entity(MerchandiserDto dto){
-        MerchandiserEntity entity = modelMapper.map(dto, MerchandiserEntity.class);
-        entity.setCreationDate(LocalDate.now());
         System.out.println("*** Merchandiser DTO to Entity ***");
+        MerchandiserEntity entity = modelMapper.map(dto, MerchandiserEntity.class);
         return entity;
     }
 
@@ -32,4 +33,13 @@ public class MerchandiserMapper {
         System.out.println("*** Merchandiser Entity to DTO ***");
         return dto;
     }
+
+    public List<MerchandiserDto> merchandiserEntityList2Dtos(List<MerchandiserEntity> entities){
+        List<MerchandiserDto> dtos = new ArrayList<>();
+        for (MerchandiserEntity entity: entities) {
+            dtos.add(this.merchandiserEntity2Dto(entity));
+        }
+        return dtos;
+    }
+
 }

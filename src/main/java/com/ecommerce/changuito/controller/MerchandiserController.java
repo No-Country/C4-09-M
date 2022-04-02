@@ -1,7 +1,6 @@
 package com.ecommerce.changuito.controller;
 
 import com.ecommerce.changuito.dto.MerchandiserDto;
-import com.ecommerce.changuito.exception.ErrorHandler;
 import com.ecommerce.changuito.service.MerchandiserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,8 +9,6 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.HashMap;
-import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -22,12 +19,27 @@ public class MerchandiserController {
     private MerchandiserService service;
 
     @PostMapping
-    public ResponseEntity<?> addMerchandiser(@Valid @RequestBody MerchandiserDto dto)
-            throws MethodArgumentNotValidException {
+    public ResponseEntity<?> addMerchandiser(@Valid @RequestBody MerchandiserDto dto) {
         MerchandiserDto result = service.add(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
+    }
+
+    @GetMapping
+    public ResponseEntity<?> getAll(){
+        return ResponseEntity.status(HttpStatus.OK).body(service.getAll());
+    }
 
 
+    @PutMapping("{id}")
+    public ResponseEntity<?> update(@PathVariable Long id, @Valid @RequestBody MerchandiserDto dto){
+        MerchandiserDto result = service.update(id, dto);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<?> delete(@PathVariable Long id){
+        service.delete(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
 }
