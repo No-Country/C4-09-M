@@ -11,6 +11,7 @@ import { RegistrationUsersComponent } from './components/registration-users/regi
 import { FooterComponent } from './components/footer/footer.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { TeamComponent } from './components/team/team.component';
+import { HeroComponent } from './components/hero/hero.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TeamComponent } from './components/team/team.component';
     RegistrationUsersComponent,
     FooterComponent,
     LandingPageComponent,
-    TeamComponent
+    TeamComponent,
+    HeroComponent
   ],
   imports: [
     BrowserModule,
