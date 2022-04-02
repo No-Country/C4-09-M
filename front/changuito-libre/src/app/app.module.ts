@@ -10,6 +10,7 @@ import { MerchandiserDashboardComponent } from './components/merchandiser-dashbo
 import { RegistrationUsersComponent } from './components/registration-users/registration-users.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { TeamComponent } from './components/team/team.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
     MerchandiserDashboardComponent,
     RegistrationUsersComponent,
     FooterComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    TeamComponent
   ],
   imports: [
     BrowserModule,
