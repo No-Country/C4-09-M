@@ -23,12 +23,6 @@ public class MerchandiserMapper {
         return dateFormatted;
     }
 
-   /* private static Enum Enum2String(Enum string) {
-        Enum = CityEnum.String;
-         = .parse(string, Enum);
-        return cityEnum;
-    }*/
-
     public MerchandiserEntity merchandiserDto2Entity(MerchandiserDTO dto){
         MerchandiserEntity entity = modelMapper.map(dto, MerchandiserEntity.class);
         entity.setCreationDate(LocalDate.now());

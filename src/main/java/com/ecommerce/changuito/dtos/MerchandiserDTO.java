@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Column;
+
+import com.ecommerce.changuito.utils.EnumCity;
+
 import java.time.LocalDate;
 
 @Data
@@ -23,7 +26,7 @@ public class MerchandiserDTO {
 
     private String cuit;
 
-    private Long idCity;
+    private EnumCity city;
 
     private String street;
 
