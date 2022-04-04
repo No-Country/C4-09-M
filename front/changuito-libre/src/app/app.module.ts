@@ -23,6 +23,7 @@ import { MerchMetodosPagoCrearComponent } from './components/merchandiser-dashbo
 import { MerchPerfilModificarComponent } from './components/merchandiser-dashboard/merch-perfil-modificar/merch-perfil-modificar.component';
 import { TeamComponent } from './components/team/team.component';
 import { HeroComponent } from './components/hero/hero.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { HeroComponent } from './components/hero/hero.component';
     MerchMetodosPagoCrearComponent,
     MerchPerfilModificarComponent,
     TeamComponent,
-    HeroComponent
+    HeroComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
