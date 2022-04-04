@@ -1,0 +1,7 @@
+.hero-body{
+    background-image: url(../../../assets/img/Cart_hero.gif);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:500px;
+}
