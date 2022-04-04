@@ -23,6 +23,14 @@ import { MerchMetodosPagoCrearComponent } from './components/merchandiser-dashbo
 import { MerchPerfilModificarComponent } from './components/merchandiser-dashboard/merch-perfil-modificar/merch-perfil-modificar.component';
 import { TeamComponent } from './components/team/team.component';
 import { HeroComponent } from './components/hero/hero.component';
+import { AdminNavComponent } from './admin-dashboard/admin-nav/admin-nav.component';
+import { AdminVentasComponent } from './components/admin-dashboard/admin-ventas/admin-ventas.component';
+import { NavComponent } from './components/admin-dashboard/nav/nav.component';
+import { AdminPerfilComponent } from './components/admin-dashboard/admin-perfil/admin-perfil.component';
+import { AdminMerchComponent } from './components/admin-dashboard/admin-merch/admin-merch.component';
+import { AdminSideBarComponent } from './components/admin-dashboard/admin-side-bar/admin-side-bar.component';
+import { EditarPerfilComponent } from './components/admin-dashboard/editar-perfil/editar-perfil.component';
+import { AdminReportesComponent } from './components/admin-dashboard/admin-reportes/admin-reportes.component';
 
 @NgModule({
   declarations: [
@@ -47,13 +55,21 @@ import { HeroComponent } from './components/hero/hero.component';
     MerchMetodosPagoCrearComponent,
     MerchPerfilModificarComponent,
     TeamComponent,
-    HeroComponent
+    HeroComponent,
+    AdminNavComponent,
+    AdminVentasComponent,
+    NavComponent,
+    AdminPerfilComponent,
+    AdminMerchComponent,
+    AdminSideBarComponent,
+    EditarPerfilComponent,
+    AdminReportesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
