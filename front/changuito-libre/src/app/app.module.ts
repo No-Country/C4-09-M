@@ -21,6 +21,8 @@ import { MerchProductoCrearComponent } from './components/merchandiser-dashboard
 import { MerchProductoModificarComponent } from './components/merchandiser-dashboard/merch-producto-modificar/merch-producto-modificar.component';
 import { MerchMetodosPagoCrearComponent } from './components/merchandiser-dashboard/merch-metodos-pago-crear/merch-metodos-pago-crear.component';
 import { MerchPerfilModificarComponent } from './components/merchandiser-dashboard/merch-perfil-modificar/merch-perfil-modificar.component';
+import { TeamComponent } from './components/team/team.component';
+import { HeroComponent } from './components/hero/hero.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { MerchPerfilModificarComponent } from './components/merchandiser-dashboa
     MerchProductoCrearComponent,
     MerchProductoModificarComponent,
     MerchMetodosPagoCrearComponent,
-    MerchPerfilModificarComponent
+    MerchPerfilModificarComponent,
+    TeamComponent,
+    HeroComponent
   ],
   imports: [
     BrowserModule,
