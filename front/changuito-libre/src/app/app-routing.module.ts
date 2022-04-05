@@ -17,6 +17,11 @@ import { AppComponent } from './app.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MerchVentasComponent } from './components/merchandiser-dashboard/merch-ventas/merch-ventas.component';
+import { AdminNavComponent } from './components/admin-dashboard/admin-nav/admin-nav.component';
+import { AdminMerchComponent } from './components/admin-dashboard/admin-merch/admin-merch.component';
+import { AdminPerfilComponent } from './components/admin-dashboard/admin-perfil/admin-perfil.component';
+import { AdminReportesComponent } from './components/admin-dashboard/admin-reportes/admin-reportes.component';
+import { AdminSideBarComponent } from './components/admin-dashboard/admin-side-bar/admin-side-bar.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent},
