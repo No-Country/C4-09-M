@@ -29,6 +29,7 @@ import { TeamComponent } from './components/team/team.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { CartComponent } from './components/cart/cart.component';
 import { AdminMerchComponent } from './components/admin-dashboard/admin-merch/admin-merch.component';
+import { ProductsComponent } from './components/products/products.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { AdminMerchComponent } from './components/admin-dashboard/admin-merch/ad
     AdminNavComponent,
     AdminPerfilComponent,
     AdminSideBarComponent,
-    AdminReportesComponent
+    AdminReportesComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
