@@ -5,6 +5,6 @@
 
 .button.is-primary{
     background-color:#fff;
-    border-color: #dbdbdb;
-    color: #363636;
+    border-color: transparent;
+    color: #666;
 }
