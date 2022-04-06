@@ -8,8 +8,8 @@ import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -29,10 +29,6 @@ public class ClientEntity extends BaseEntity{
 
     @NotBlank(message = "Lastname is mandatory")
     private String lastname;
-
-    @NotBlank(message = "Email is mandatory")
-    @Email(message = "Email is invalid")
-    private String email;
 
     private String dni;
 

@@ -30,11 +30,6 @@ public class MerchandiserEntity extends BaseEntity{
     @NotBlank(message = "Lastname is a mandatory field")
     private String lastname;
 
-    //TODO: agregar relación con usuario a la entidad Merchandiser
-
-    @Email(message = "Invalid email")
-    private String email;
-
     private String description;
 
     @Column(length = 11)
