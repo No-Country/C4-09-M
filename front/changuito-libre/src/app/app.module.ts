@@ -30,6 +30,8 @@ import { HeroComponent } from './components/hero/hero.component';
 import { CartComponent } from './components/cart/cart.component';
 import { AdminMerchComponent } from './components/admin-dashboard/admin-merch/admin-merch.component';
 import { ProductsComponent } from './components/products/products.component';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { ProductosViewComponent } from './components/productos-view/productos-view.component';
 
 @NgModule({
   declarations: [
@@ -61,11 +63,13 @@ import { ProductsComponent } from './components/products/products.component';
     AdminPerfilComponent,
     AdminSideBarComponent,
     AdminReportesComponent,
-    ProductsComponent
+    ProductsComponent,
+    ProductosViewComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    IvyCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,6 +3,7 @@
 }
 a{
   color: white;
+  text-decoration: none;
 }
 a:hover{
   background-color: #de0200;

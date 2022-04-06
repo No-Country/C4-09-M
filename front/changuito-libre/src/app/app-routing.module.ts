@@ -1,3 +1,4 @@
+import { ProductosViewComponent } from './components/productos-view/productos-view.component';
 import { MerchPerfilModificarComponent } from './components/merchandiser-dashboard/merch-perfil-modificar/merch-perfil-modificar.component';
 import { MerchMetodosPagoCrearComponent } from './components/merchandiser-dashboard/merch-metodos-pago-crear/merch-metodos-pago-crear.component';
 import { MerchProductoModificarComponent } from './components/merchandiser-dashboard/merch-producto-modificar/merch-producto-modificar.component';
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'merch-perfil', component: MerchPerfilComponent},
   { path: 'merch-perfil-modificar', component: MerchPerfilModificarComponent},
   { path: 'registrarse', component: RegistrationUsersComponent },
+  { path: 'productos', component: ProductosViewComponent },
 ];
 
 @NgModule({
