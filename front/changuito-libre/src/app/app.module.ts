@@ -29,8 +29,12 @@ import { TeamComponent } from './components/team/team.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { CartComponent } from './components/cart/cart.component';
 import { AdminMerchComponent } from './components/admin-dashboard/admin-merch/admin-merch.component';
+<<<<<<< HEAD
 import { AdminUsuariosRegistradosComponent } from './components/admin-dashboard/admin-usuarios-registrados/admin-usuarios-registrados.component';
 import { AdminPaymentsComponent } from './components/admin-dashboard/admin-payments/admin-payments.component';
+=======
+import { ProductsComponent } from './components/products/products.component';
+>>>>>>> 40446c55a9bc15d0326efef646f4b50cc5f1252a
 
 @NgModule({
   declarations: [
@@ -62,8 +66,12 @@ import { AdminPaymentsComponent } from './components/admin-dashboard/admin-payme
     AdminPerfilComponent,
     AdminSideBarComponent,
     AdminReportesComponent,
+<<<<<<< HEAD
     AdminUsuariosRegistradosComponent,
     AdminPaymentsComponent
+=======
+    ProductsComponent
+>>>>>>> 40446c55a9bc15d0326efef646f4b50cc5f1252a
   ],
   imports: [
     BrowserModule,
