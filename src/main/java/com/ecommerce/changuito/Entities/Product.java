@@ -1,36 +1,47 @@
 package com.ecommerce.changuito.Entities;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import lombok.Getter;
-import lombok.Setter;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
-@Setter
-@Getter
 @Entity
-public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_product;
-    private String brand;
-    private String name;
-    private String description;
-    private Double content;
-    private byte [] image;
-    private Double price;
-    private Integer quantity;
-    private String status;
-    private String delete;
-    private Content id_content;
-    private Category id_category;
-
-    public void setImage(byte[] image) {
-        this.image=image;
-    }
+@Table(name = "product")
+@SQLDelete(sql = "UPDATE product SET deleted = true WHERE id = ?")
+@Where(clause = "deleted = false ")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Product extends BaseEntity{
     
-    public byte [] getImage(){
-        return image;
-    }
+    @NotBlank(message = "La marca no debe estar vacia o ser nula")
+    private String brand;
+    
+    @NotBlank(message = "El nombre no debe estar vacio o ser nulo")
+    private String name;
+    
+    @NotBlank(message = "La descripcion no debe estar vacia")
+    private String description;
+    
+    private Long id_content;
+    
+    @NotEmpty("La imagen no debe estar vacia")
+    private Long id_image;
+    
+    @NotEmpty(message = "El precio no debe ser nulo")
+    private Double price;
+    
+    @NotEmpty(message = "La cantidad no debe ser nula")
+    private Integer quantity;
+    
+    private String status;
+    private Long id_category;
+
+   
 }
