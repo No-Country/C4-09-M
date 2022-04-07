@@ -46,13 +46,26 @@ public class CartEntity extends BaseEntity {
    private LocalDateTime creationDate = LocalDateTime.now();
 
 
+   @Column(name = "id_lista", nullable = false, updatable=true)
+   private Integer listaId;
+
+   @Column(name = "id_cliente", nullable = false, updatable=true)
+   private Integer clienteId;
+
+   @Column(name = "id_merchandiser", nullable = false, updatable=true)
+   private Integer merchandiserId;
+
 
    //@JsonIgnore
    //@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
   // private List<Product> products = new ArrayList<>();
 
-   //@ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
-   //@JoinColumn(name = "news_category_id")
-  // private Cliente cliente;
+   //@ManyToOne(fetch = FetchType.EAGER, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+   //@JoinColumn(name = "id_merchandiser")
+   //private MerchandiserEntity merchandiser;
+
+ //  @ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+  // @JoinColumn(name = "id_cliente", nullable = false, updatable=true)
+  // private ClienteEntity cliente;
 
 }

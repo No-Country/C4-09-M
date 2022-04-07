@@ -15,29 +15,28 @@ import java.util.List;
 public class MerchandiserController {
 
     @Autowired
-    private MerchandiserService merchandiserService;
+    private MerchandiserService service;
 
     @PostMapping
     public ResponseEntity<?> addMerchandiser(@RequestBody MerchandiserDTO dto){
-        MerchandiserDTO result = merchandiserService.add(dto);
+        MerchandiserDTO result = service.add(dto);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @GetMapping
-    public  ResponseEntity<?> getMerchandisers(){
-        List<MerchandiserDTO> results = merchandiserService.getAll();
-        return ResponseEntity.status(HttpStatus.OK).body(results);
+    public  ResponseEntity<?> getAll(){
+        return ResponseEntity.status(HttpStatus.OK).body(service.getAll());
     }
 
    @DeleteMapping("{id}")
     public ResponseEntity<?> deleteById(@PathVariable Long id){
-        merchandiserService.deleteMerchandiser(id);
+        service.deleteMerchandiser(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
    }
 
    @PutMapping("{id}")
     public ResponseEntity<?> update(@PathVariable Long id, @RequestBody MerchandiserDTO dto){
-        MerchandiserDTO result = merchandiserService.update(id, dto);
+        MerchandiserDTO result = service.update(id, dto);
         return ResponseEntity.status(HttpStatus.OK).body(result);
    }
 }

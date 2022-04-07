@@ -12,9 +12,7 @@ public class CartDetailsDTO {
     
     private Long id;
 
-    private String productId;
-
-    private Integer quantity;
+    private Integer cartId;
 
     private Integer total;
 
@@ -23,8 +21,5 @@ public class CartDetailsDTO {
     private LocalDateTime updateDate;
 
     private LocalDateTime creationDate;
-
-
-
 
 }

@@ -1,5 +1,8 @@
 package com.ecommerce.changuito.mapper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.ecommerce.changuito.dtos.CartDTO;
 import com.ecommerce.changuito.entities.CartEntity;
 
@@ -26,4 +29,14 @@ public class CartMapper {
         System.out.println(entity);
         return entity;
     }
+
+public List<CartDTO> cartEntityList2DtosList(List<CartEntity> entities) {
+    List<CartDTO> dtos = new ArrayList<>();
+    for (CartEntity entity: entities) {
+        dtos.add(this.cartEntity2Dto(entity));
+    }
+    return dtos;
+}
+
+
 }

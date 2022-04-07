@@ -1,7 +1,11 @@
 package com.ecommerce.changuito.mapper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.ecommerce.changuito.dtos.CartDetailsDTO;
 import com.ecommerce.changuito.entities.CartDetailsEntity;
+import com.ecommerce.changuito.entities.CartEntity;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
@@ -26,5 +30,16 @@ public class CartDetailsMapper {
         System.out.println(entity);
         return entity;
     }
+
+    public List<CartDetailsDTO> cartDetailsEntityList2DtosList(List<CartDetailsEntity> entities) {
+        List<CartDetailsDTO> dtos = new ArrayList<>();
+        for (CartDetailsEntity entity: entities) {
+            dtos.add(this.cartDetailsEntity2Dto(entity));
+        }
+        return dtos;
+    }
+
+
+
 }
 

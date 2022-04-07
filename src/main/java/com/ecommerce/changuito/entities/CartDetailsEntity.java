@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
 import com.ecommerce.changuito.utils.EnumPayment;
@@ -29,11 +30,8 @@ import lombok.Setter;
 
 
 public class CartDetailsEntity extends BaseEntity {
-    @Column(name = "id_product", nullable = false, updatable=true)
-    private String productId;
-
-    @Column(name = "quantity", nullable = false, updatable=true)
-    private Integer quantity;
+    @Column(name = "id_cart", nullable = false, updatable=true)
+    private Integer cartId;
 
     @Column(name = "total_price", nullable = false, updatable=true)
     private Integer total;

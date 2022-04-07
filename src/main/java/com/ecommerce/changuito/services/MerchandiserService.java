@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface MerchandiserService {
 
-    MerchandiserDTO add(MerchandiserDTO dto);
+    MerchandiserDTO add(MerchandiserDTO entity);
     List<MerchandiserDTO> getAll();
     void deleteMerchandiser(Long id);
     MerchandiserDTO update(Long id, MerchandiserDTO dto);

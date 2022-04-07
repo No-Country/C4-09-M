@@ -41,11 +41,15 @@ public class MerchandiserMapper {
         return dto;
     }
 
-    public List<MerchandiserDTO> merchandiseEntityList2DtosList(List<MerchandiserEntity> entities) {
+    public List<MerchandiserDTO> merchandiserEntityList2DtosList(List<MerchandiserEntity> entities) {
         List<MerchandiserDTO> dtos = new ArrayList<>();
         for (MerchandiserEntity entity: entities) {
             dtos.add(this.merchandiserEntity2Dto(entity));
         }
         return dtos;
     }
+
+  
+    
+
 }
