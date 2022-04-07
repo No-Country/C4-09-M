@@ -1,0 +1,114 @@
+<!---Admin control de usuarios registrados-->
+<app-admin-nav></app-admin-nav>
+<div class="container">
+  <div class="columns">
+    <div class="column is-2 ">
+      <app-admin-side-bar></app-admin-side-bar>
+    </div>
+    <div class="column is-10">
+      <section class="hero is-info welcome is-small">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              Hola, AdminName.
+            </h1>
+            <h2 class="subtitle">
+              Éstos son los usuarios registrados!
+            </h2>
+          </div>
+        </div>
+      </section>
+      <div class="block has-text-right">
+        <a href="admin-usuario-crear"><button class="button is-success"><i class="fas fa-plus"></i> Nuevo Usuario</button></a>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Cumpleaños</th>
+            <th>Sexo</th>
+            <th>Imagen</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Ventas</th>
+            <th>Compras</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>40666345</th>
+            <td>Daniela</td>
+            <td>Palma</td>
+            <td>24/12/1997</td>
+            <td>Mujer</td>
+            <td> <a href="admin-usuario-modificar"
+              class="button is-warning" role="button"><i class="fas fa-pen"></i></a>
+              <button class="button is-danger js-modal-trigger" data-target="modal-js-example">
+                <i class="fas fa-trash-alt"></i>
+              </button></td>
+            <td>danielapalma@gmail.com</td>
+            <td>Danielapalma123</td>
+            <td>0</td>
+            <td>50</td>
+            
+          </tr>
+          <tr>
+            <th>20956123</th>
+            <td>Martin </td>
+            <td>Díaz</td>
+            <td>02/07/1975</td>
+            <td>Hombre</td>
+             <td> <a href="admin-usuario-modificar"
+              class="button is-warning" role="button"><i class="fas fa-pen"></i></a>
+              <button class="button is-danger js-modal-trigger"  data-target="modal-js-example">
+                <i class="fas fa-trash-alt"></i>
+              </button> </td>
+            <td>martin.ventas@gmail.com</td>
+            <td>75M@rtin</td>
+            <td>220</td>
+            <td>0</td>
+           
+          </tr>
+          <tr>
+            <th>37645980</th>
+            <td>Lourdes</td>
+            <td>Serafini</td>
+            <td>26/02/85</td>
+            <td>Mujer</td>
+            <td> <a href="admin-usuario-modificar"
+              class="button is-warning" role="button"><i class="fas fa-pen"></i></a>
+              <button class="button is-danger js-modal-trigger" data-target="modal-js-example">
+                <i class="fas fa-trash-alt"></i>
+              </button></td>
+            <td>ls_mayorista@gmail.com</td>
+            <td>mayorista1234</td>
+            <td>567</td>
+            <td>0</td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <div id="modal-js-example" class="modal">
+    <div class="modal-background"></div>
+
+    <div class="modal-content">
+      <div class="box">
+        <p>¿Desea eliminar usuario?</p>
+        <br>
+        <div class="">
+            <button type="button" name="button" class="button is-danger"
+               >Eliminar</button>
+            <button type="button" name="button" class="button is-info">Cancelar</button>
+      </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+</div>
+<script async type="text/javascript" src="../../../../assets/js/dashboard.js"></script>
+<script type="text/javascript" src="../../../../assets/js/modal.js"></script>
