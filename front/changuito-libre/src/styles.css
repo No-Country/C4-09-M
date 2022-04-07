@@ -1,3 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 /*import de bulma, no tocar plis*/
-@import 'https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css'
+@import 'https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css';
+
+a{
+  text-decoration: none;
+}
