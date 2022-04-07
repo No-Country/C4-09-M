@@ -36,6 +36,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AdminUsuarioComponent } from './components/admin-dashboard/admin-usuario/admin-usuario.component';
 import { AdminUsuarioModificarComponent } from './components/admin-dashboard/admin-usuario-modificar/admin-usuario-modificar.component';
+import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { AdminUsuarioModificarComponent } from './components/admin-dashboard/adm
     AdminUsuarioModificarComponent,
     ProductsComponent,
     ProductosViewComponent,
+    PerfilUsuarioComponent,
     
   ],
   imports: [
