@@ -38,6 +38,7 @@ import { AdminUsuarioComponent } from './components/admin-dashboard/admin-usuari
 import { AdminUsuarioModificarComponent } from './components/admin-dashboard/admin-usuario-modificar/admin-usuario-modificar.component';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 import { AboutUsViewComponent } from './components/about-us-view/about-us-view.component';
+import { HeroPresentationComponent } from './components/hero-presentation/hero-presentation.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { AboutUsViewComponent } from './components/about-us-view/about-us-view.c
     ProductosViewComponent,
     AboutUsViewComponent,
     PerfilUsuarioComponent,
+    HeroPresentationComponent,
 
   ],
   imports: [
