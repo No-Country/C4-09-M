@@ -1,3 +1,6 @@
 .carousel--slider-aligment{
   height: 500px;
 }
+body,h1,h2,h3,h4,h5,h6,p,a{
+  text-decoration: none;
+}

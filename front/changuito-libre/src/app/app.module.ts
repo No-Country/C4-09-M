@@ -34,6 +34,7 @@ import { AdminPaymentsComponent } from './components/admin-dashboard/admin-payme
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { ProductosViewComponent } from './components/productos-view/productos-view.component';
 import { ProductsComponent } from './components/products/products.component';
+import { AboutUsViewComponent } from './components/about-us-view/about-us-view.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { ProductsComponent } from './components/products/products.component';
     AdminReportesComponent,
     ProductsComponent,
     ProductosViewComponent,
+    AboutUsViewComponent,
   ],
   imports: [
     BrowserModule,
