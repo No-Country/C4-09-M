@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface ContentService {
     
-    ContentDto save();
-    public void delete(Long id);
+    ContentDto save(ContentDto contentDto);
+    public void delete(Long id)throws Exception;
     ContentDto update(Long id, ContentDto contentDto);
     List<ContentDto> getAll();
 }
