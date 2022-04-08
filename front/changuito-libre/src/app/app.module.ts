@@ -39,6 +39,8 @@ import { AdminUsuarioModificarComponent } from './components/admin-dashboard/adm
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 import { AboutUsViewComponent } from './components/about-us-view/about-us-view.component';
 import { HeroPresentationComponent } from './components/hero-presentation/hero-presentation.component';
+import { OrderComponent } from './components/order/order.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +80,8 @@ import { HeroPresentationComponent } from './components/hero-presentation/hero-p
     AboutUsViewComponent,
     PerfilUsuarioComponent,
     HeroPresentationComponent,
+    OrderComponent,
+    PaymentComponent,
 
   ],
   imports: [
