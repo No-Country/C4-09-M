@@ -123,7 +123,7 @@ img {
     position: absolute;
     right: 0px;
     bottom: 9px;
-    color: #de0200;
+    color: #2b0302;
     cursor: pointer;
     transition: 0.3s;
     font-size: 14px
@@ -203,3 +203,6 @@ form .btn.btn-primary:hover {
         font-size: 12px
     }
 }
+
+
+
