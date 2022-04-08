@@ -2,9 +2,8 @@
 package com.ecommerce.changuito.Controllers;
 
 import com.ecommerce.changuito.Dto.CategoryDto;
-
-import com.ecommerce.changuito.Servicies.CategoryService;
-
+import com.ecommerce.changuito.Dto.ProductDto;
+import com.ecommerce.changuito.Servicies.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,38 +18,31 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("category")
-public class CategoryController {
+@RequestMapping("product")
+public class ProductController {
     
     @Autowired
-    private CategoryService categoryService;
+    private ProductService productService;
     
     @GetMapping("all")
     public ResponseEntity<?> getAll(){
-        return ResponseEntity.status(HttpStatus.CREATED).body(categoryService.getAll());
+        return ResponseEntity.status(HttpStatus.CREATED).body(productService.getAll());
     }
     
-//    @GetMapping("/{id}")
-//    public ResponseEntity<?> getOne(@PathVariable Long id){
-//        try {
-//            return ResponseEntity.status(HttpStatus.OK).body(categoryService.findById(id));
-//        } catch (Exception e) {
-//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-//        }
-//    }
     @PostMapping
-    public ResponseEntity<?> saveCategory(@RequestBody CategoryDto categoryDto){
-      CategoryDto  categoryDto1 = categoryService.save(categoryDto);
-      return ResponseEntity.status(HttpStatus.CREATED).body(categoryDto1);
+    public ResponseEntity<?> saveProduct(@RequestBody ProductDto productDto){
+      ProductDto productDto1 = productService.save(productDto);
+      return ResponseEntity.status(HttpStatus.CREATED).body(productDto1);
     }
     
     @DeleteMapping
-    public ResponseEntity<?> deleteCategory(@PathVariable Long id){
+    public ResponseEntity<?> deleteProduct(@PathVariable Long id){
         try {
-            categoryService.delete(id);
+            productService.delete(id);
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         } catch (Exception ex) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
         }
     }
+    
 }
