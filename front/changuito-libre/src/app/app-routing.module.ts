@@ -1,3 +1,8 @@
+import { EditarPerfilComponent } from './components/admin-dashboard/editar-perfil/editar-perfil.component';
+import { AdminUsuarioModificarComponent } from './components/admin-dashboard/admin-usuario-modificar/admin-usuario-modificar.component';
+import { AdminUsuarioComponent } from './components/admin-dashboard/admin-usuario/admin-usuario.component';
+import { AdminPaymentsComponent } from './components/admin-dashboard/admin-payments/admin-payments.component';
+import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 import { AboutUsViewComponent } from './components/about-us-view/about-us-view.component';
 import { ProductosViewComponent } from './components/productos-view/productos-view.component';
 import { MerchPerfilModificarComponent } from './components/merchandiser-dashboard/merch-perfil-modificar/merch-perfil-modificar.component';
@@ -29,6 +34,13 @@ const routes: Routes = [
   { path: '', component: LandingPageComponent},
   { path: 'login', component: LoguinComponent},
   { path: 'admin', component: AdminDashboardComponent},
+  { path: 'admin-payments', component: AdminPaymentsComponent},
+  { path: 'admin-usuarios', component: AdminUsuarioComponent},
+  { path: 'admin-usuarios-modificar', component: AdminUsuarioModificarComponent},
+  { path: 'admin-perfil', component: AdminPerfilComponent},
+  { path: 'admin-perfil-editar', component: EditarPerfilComponent},
+  { path: 'admin-merch-agregar', component: AdminMerchComponent},
+  { path: 'admin-reportes', component: AdminReportesComponent},
   { path: 'merchandiser-dashboard', component: MerchandiserDashboardComponent },
   { path: 'merch-productos', component: MerchProductsComponent },
   { path: 'merch-ventas', component: MerchVentasComponent },
@@ -42,6 +54,7 @@ const routes: Routes = [
   { path: 'registrarse', component: RegistrationUsersComponent },
   { path: 'productos', component: ProductosViewComponent },
   { path: 'us', component: AboutUsViewComponent },
+  { path: 'mi-perfil', component: PerfilUsuarioComponent },
 ];
 
 @NgModule({

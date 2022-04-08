@@ -1,3 +1,5 @@
+import { SearcherComponent } from './components/searcher/searcher.component';
+import { EditarPerfilComponent } from './components/admin-dashboard/editar-perfil/editar-perfil.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { CartComponent } from './components/cart/cart.component';
 import { AdminMerchComponent } from './components/admin-dashboard/admin-merch/admin-merch.component';
@@ -82,6 +84,8 @@ import { PaymentComponent } from './components/payment/payment.component';
     HeroPresentationComponent,
     OrderComponent,
     PaymentComponent,
+    EditarPerfilComponent,
+    SearcherComponent
 
   ],
   imports: [
