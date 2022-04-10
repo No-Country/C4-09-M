@@ -29,7 +29,7 @@ import lombok.Setter;
 @Data
 
 
-public class CartDetailsEntity extends BaseEntity {
+public class OrderEntity extends BaseEntity {
     @Column(name = "id_cart", nullable = false, updatable=true)
     private Integer cartId;
 

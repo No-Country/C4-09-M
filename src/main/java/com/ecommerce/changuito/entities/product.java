@@ -55,13 +55,6 @@ public class Product extends BaseEntity {
    @DateTimeFormat(pattern = "yyyy-MM-dd")
    private LocalDateTime creationDate = LocalDateTime.now();
 
-
-
-
-  //  @ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType. REFRESH})
-   // @JoinColumn(name= "cart_id")
-   // private CartEntity cart;
-
     @JsonIgnore
     @ManyToMany
     @JoinTable(name="product_cart", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "id_cart"))

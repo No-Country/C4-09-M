@@ -2,8 +2,8 @@ package com.ecommerce.changuito.controllers;
 
 import java.util.List;
 
-import com.ecommerce.changuito.dtos.CartDetailsDTO;
-import com.ecommerce.changuito.services.CartDetailsService;
+import com.ecommerce.changuito.dtos.OrderDTO;
+import com.ecommerce.changuito.services.OrderService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,31 +21,31 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin(originPatterns = "*")
 @RequestMapping("details")
-public class CartDetailsController {
+public class OrderController {
     @Autowired
-    private CartDetailsService cartDetailsService;
+    private OrderService OrderService;
 
     @PostMapping
-    public ResponseEntity<?> addCart(@RequestBody CartDetailsDTO dto){
-       CartDetailsDTO result = cartDetailsService.add(dto);
+    public ResponseEntity<?> addCart(@RequestBody OrderDTO dto){
+       OrderDTO result = OrderService.add(dto);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @GetMapping
     public  ResponseEntity<?> getDetails(){
-        List<CartDetailsDTO> results = cartDetailsService.getAll();
+        List<OrderDTO> results = OrderService.getAll();
         return ResponseEntity.status(HttpStatus.OK).body(results);
     }
 
     @DeleteMapping("{id}")
     public ResponseEntity<?> deleteById(@PathVariable Long id){
-        cartDetailsService.deleteCartDetails(id);
+        OrderService.deleteOrder(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
    }
 
    @PutMapping("{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody CartDetailsDTO dto){
-        CartDetailsDTO result = cartDetailsService.update(id, dto);
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody OrderDTO dto){
+        OrderDTO result = OrderService.update(id, dto);
         return ResponseEntity.status(HttpStatus.OK).body(result);
    }
 
