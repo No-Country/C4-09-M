@@ -11,6 +11,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -22,6 +23,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -37,6 +39,14 @@ public class CartEntity extends BaseEntity {
    @Enumerated(value = EnumType.STRING)
    private EnumStatus enumStatus;
 
+   private String ticket;
+
+   @Column(name = "id_cliente", nullable = false, updatable=true)
+   private Integer clienteId;
+
+   @Column(name = "id_merchandiser", nullable = false, updatable=true)
+   private Integer merchandiserId;
+
    @Column(name="update_date")
    @DateTimeFormat(pattern = "yyyy-MM-dd")
    private LocalDateTime updateDate;
@@ -45,16 +55,9 @@ public class CartEntity extends BaseEntity {
    @DateTimeFormat(pattern = "yyyy-MM-dd")
    private LocalDateTime creationDate = LocalDateTime.now();
 
-
-   @Column(name = "id_lista", nullable = false, updatable=true)
-   private Integer listaId;
-
-   @Column(name = "id_cliente", nullable = false, updatable=true)
-   private Integer clienteId;
-
-   @Column(name = "id_merchandiser", nullable = false, updatable=true)
-   private Integer merchandiserId;
-
+   @JsonIgnore
+   @ManyToMany(mappedBy = "carts")
+   private Set<Product> products = new HashSet<Product>();
 
    //@JsonIgnore
    //@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

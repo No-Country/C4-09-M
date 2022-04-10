@@ -2,9 +2,11 @@ package com.ecommerce.changuito.dtos;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 import com.ecommerce.changuito.entities.ClienteEntity;
 import com.ecommerce.changuito.entities.Lista;
+import com.ecommerce.changuito.entities.Product;
 import com.ecommerce.changuito.utils.EnumStatus;
 
 import lombok.AllArgsConstructor;
@@ -22,15 +24,17 @@ public class CartDTO {
 
     private EnumStatus status;
 
+    private String ticket;   
+
     private LocalDateTime updateDate;
 
     private LocalDateTime creationDate;
 
-    private Integer listaId;
-
     private Integer merchandiserId;
 
     private Integer clienteId;
+
+    private Set<Product> products;
 
     }
     
