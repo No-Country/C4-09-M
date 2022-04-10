@@ -1,9 +1,8 @@
 
 package com.ecommerce.changuito.Controllers;
 
-import com.ecommerce.changuito.Dto.CategoryDto;
 import com.ecommerce.changuito.Dto.ProductDto;
-import com.ecommerce.changuito.Servicies.ProductService;
+import com.ecommerce.changuito.Servicies.Impl.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductController {
     
     @Autowired
-    private ProductService productService;
+    private ProductServiceImpl productService;
     
     @GetMapping("all")
     public ResponseEntity<?> getAll(){

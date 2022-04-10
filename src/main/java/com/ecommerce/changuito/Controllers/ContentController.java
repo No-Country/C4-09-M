@@ -2,8 +2,7 @@
 package com.ecommerce.changuito.Controllers;
 
 import com.ecommerce.changuito.Dto.ContentDto;
-import com.ecommerce.changuito.Dto.ProductDto;
-import com.ecommerce.changuito.Servicies.ContentService;
+import com.ecommerce.changuito.Servicies.Impl.ContentServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -19,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping
 public class ContentController {
     
-    private ContentService contentService;
+    private ContentServiceImpl contentService;
     
     @PostMapping
     public ResponseEntity<?> saveProduct(@RequestBody ContentDto contentDto){

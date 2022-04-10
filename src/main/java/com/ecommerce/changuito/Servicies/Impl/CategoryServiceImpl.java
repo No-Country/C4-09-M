@@ -8,6 +8,7 @@ import com.ecommerce.changuito.Repositories.CategoryRepository;
 import com.ecommerce.changuito.Servicies.CategoryService;
 import java.util.List;
 import java.util.Optional;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +30,7 @@ public class CategoryServiceImpl implements CategoryService
     }
 
     @Override
+    @Transactional
     public CategoryDto update(Long id, CategoryDto categoryDto) {
         
         Optional<Category> answer= categoryRepository.findById(id);
@@ -49,7 +51,7 @@ public class CategoryServiceImpl implements CategoryService
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(Long id) throws Exception {
         
         Optional<Category> answer= categoryRepository.findById(id);
         if (answer.isPresent()) {

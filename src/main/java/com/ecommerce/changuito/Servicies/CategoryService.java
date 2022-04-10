@@ -2,7 +2,6 @@
 package com.ecommerce.changuito.Servicies;
 
 import com.ecommerce.changuito.Dto.CategoryDto;
-import com.ecommerce.changuito.Entities.Category;
 import java.util.List;
 
 

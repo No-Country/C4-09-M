@@ -23,6 +23,7 @@ import org.hibernate.annotations.Where;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Category extends BaseEntity {
-    @NotBlank(message = "El nombre no puede estar vacio o ser nulo")
+    
+    @NotBlank(message = "El nombre de la categoria no puede estar vacio o ser nulo")
     private String name;
 }

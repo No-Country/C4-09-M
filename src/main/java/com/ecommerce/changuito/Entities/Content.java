@@ -2,9 +2,6 @@
 package com.ecommerce.changuito.Entities;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -21,8 +18,8 @@ import org.hibernate.annotations.Where;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Content extends BaseEntity {
-    
-    @NotBlank(message = "El nombre no puede estar vacio o ser nulo")
+ 
+    @NotBlank(message = "El nombre de la unidad no debe estar vacio o ser nulo")
     private String name;
     
 }
