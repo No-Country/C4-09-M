@@ -43,6 +43,7 @@ import { AboutUsViewComponent } from './components/about-us-view/about-us-view.c
 import { HeroPresentationComponent } from './components/hero-presentation/hero-presentation.component';
 import { OrderComponent } from './components/order/order.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -91,6 +92,7 @@ import { PaymentComponent } from './components/payment/payment.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     IvyCarouselModule,
   ],
   providers: [],
