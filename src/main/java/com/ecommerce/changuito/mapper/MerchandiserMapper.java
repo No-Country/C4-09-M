@@ -22,34 +22,25 @@ public class MerchandiserMapper {
         LocalDate dateFormatted = LocalDate.parse(date, formatter);
         return dateFormatted;
     }
-
-    public MerchandiserEntity merchandiserDto2Entity(MerchandiserDTO dto){
+    public MerchandiserEntity merchandiserDto2Entity(MerchandiserDto dto){
+        System.out.println("*** Merchandiser DTO to Entity ***");
         MerchandiserEntity entity = modelMapper.map(dto, MerchandiserEntity.class);
-        entity.setCreationDate(LocalDate.now());
-        System.out.println("*** Merchandise DTO to Entity ***");
-        System.out.println(dto);
-        System.out.println(entity);
         return entity;
     }
 
-    public MerchandiserDTO merchandiserEntity2Dto(MerchandiserEntity entity){
-        MerchandiserDTO dto = modelMapper.map(entity, MerchandiserDTO.class);
+    public MerchandiserDto merchandiserEntity2Dto(MerchandiserEntity entity){
+        MerchandiserDto dto = modelMapper.map(entity, MerchandiserDto.class);
         dto.setCreationDate(entity.getCreationDate().toString());
-        System.out.println("*** Merchandise Entity to DTO ***");
-        System.out.println(entity);
-        System.out.println(dto);
+        System.out.println("*** Merchandiser Entity to DTO ***");
         return dto;
     }
 
-    public List<MerchandiserDTO> merchandiserEntityList2DtosList(List<MerchandiserEntity> entities) {
-        List<MerchandiserDTO> dtos = new ArrayList<>();
+    public List<MerchandiserDto> merchandiserEntityList2Dtos(List<MerchandiserEntity> entities){
+        List<MerchandiserDto> dtos = new ArrayList<>();
         for (MerchandiserEntity entity: entities) {
             dtos.add(this.merchandiserEntity2Dto(entity));
         }
         return dtos;
     }
-
-  
-    
 
 }
