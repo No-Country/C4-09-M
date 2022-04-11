@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface MerchandiserService {
 
-    MerchandiserDto add(MerchandiserDto entity);
+    MerchandiserDto add(MerchandiserDto entity) throws Exception;
     List<MerchandiserDto> getAll();
     MerchandiserDto update(Long id, MerchandiserDto dto);
     void delete(Long id);

@@ -18,10 +18,15 @@ public class MerchandiserController {
     @Autowired
     private MerchandiserService service;
 
-    @PostMapping
-    public ResponseEntity<?> addMerchandiser(@Valid @RequestBody MerchandiserDto dto) {
-        MerchandiserDto result = service.add(dto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(result);
+    @PostMapping("/signup")
+    public ResponseEntity<?> signup(@Valid @RequestBody MerchandiserDto dto) {
+        try {
+            MerchandiserDto result = service.add(dto);
+            return ResponseEntity.status(HttpStatus.CREATED).body(result);
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+
+        }
     }
 
     @GetMapping

@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -17,6 +18,8 @@ public class UserDetailsCustomService implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
+
+    private final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -31,7 +34,7 @@ public class UserDetailsCustomService implements UserDetailsService {
     public boolean save(UserDTO userDTO){
         UserEntity userEntity = new UserEntity();
         userEntity.setUsername(userDTO.getUsername());
-        userEntity.setPassword(userDTO.getPassword());
+        userEntity.setPassword(bCryptPasswordEncoder.encode(userDTO.getPassword()));
         userEntity.setEmail(userDTO.getEmail());
         userEntity = this.userRepository.save(userEntity);
         if (userEntity != null){
@@ -39,5 +42,10 @@ public class UserDetailsCustomService implements UserDetailsService {
         }
         return userEntity != null;
 
+    }
+
+    public UserEntity findByUsername(String username){
+        UserEntity userEntity = userRepository.findByUsername(username);
+        return userEntity;
     }
 }

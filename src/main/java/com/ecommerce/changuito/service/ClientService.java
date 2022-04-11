@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ClientService {
 
-    ClientDto save(ClientDto dto);
+    ClientDto save(ClientDto dto) throws Exception;
     List<ClientDto> getAll();
 
 }

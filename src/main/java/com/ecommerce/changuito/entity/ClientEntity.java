@@ -8,11 +8,10 @@ import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
@@ -36,6 +35,11 @@ public class ClientEntity extends BaseEntity{
     private LocalDate birthday;
 
     private String country;
+
+    @NotNull
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name="user_id", referencedColumnName = "id")
+    private UserEntity user;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @CreationTimestamp
