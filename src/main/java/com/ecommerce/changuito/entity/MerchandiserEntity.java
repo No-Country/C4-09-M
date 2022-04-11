@@ -8,9 +8,7 @@ import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
@@ -30,11 +28,6 @@ public class MerchandiserEntity extends BaseEntity{
     @NotBlank(message = "Lastname is a mandatory field")
     private String lastname;
 
-    //TODO: agregar relación con usuario a la entidad Merchandiser
-
-    @Email(message = "Invalid email")
-    private String email;
-
     private String description;
 
     @Column(length = 11)
@@ -45,6 +38,10 @@ public class MerchandiserEntity extends BaseEntity{
 
     @Column(name = "street_number")
     private String streetNumber;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="user_id", referencedColumnName = "id")
+    private UserEntity user;
 
     @Column(name="update_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")

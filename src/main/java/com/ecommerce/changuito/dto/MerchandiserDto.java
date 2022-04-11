@@ -1,5 +1,6 @@
 package com.ecommerce.changuito.dto;
 
+import com.ecommerce.changuito.auth.dto.UserDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,5 +20,6 @@ public class MerchandiserDto {
     private String streetNumber;
     private String updateDate;
     private String creationDate;
+    private UserDTO user;
 
 }

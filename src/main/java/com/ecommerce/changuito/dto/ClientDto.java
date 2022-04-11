@@ -1,5 +1,6 @@
 package com.ecommerce.changuito.dto;
 
+import com.ecommerce.changuito.auth.dto.UserDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,6 +19,7 @@ public class ClientDto {
     private String country;
     private String created;
     private String updated;
+    private UserDTO user;
 
 
 
