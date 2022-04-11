@@ -1,7 +1,9 @@
 package com.ecommerce.changuito.mapper;
 
-import com.ecommerce.changuito.dto.MerchandiserDto;
-import com.ecommerce.changuito.entity.MerchandiserEntity;
+import com.ecommerce.changuito.dtos.MerchandiserDTO;
+import com.ecommerce.changuito.entities.MerchandiserEntity;
+import com.ecommerce.changuito.entities.City.CityEnum;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +22,6 @@ public class MerchandiserMapper {
         LocalDate dateFormatted = LocalDate.parse(date, formatter);
         return dateFormatted;
     }
-
     public MerchandiserEntity merchandiserDto2Entity(MerchandiserDto dto){
         System.out.println("*** Merchandiser DTO to Entity ***");
         MerchandiserEntity entity = modelMapper.map(dto, MerchandiserEntity.class);
