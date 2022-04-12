@@ -14,7 +14,7 @@
           </div>
         </div>
       </section>
-
+  
       <h1 class="title is-1 has-text-centered">Nuevo Método de Pago</h1>
       <div class="field">
         <label class="label">Nombre</label>
@@ -31,20 +31,59 @@
         </div>
       </div>
       <br/> 
-      <div class="modal-content">
-        <div class="box">
-          <p>¿Desea eliminar este Método de pago?</p>
-          <br>
-          <div class="">
-              <button type="button" name="button" class="button is-danger"
-                 >Eliminar</button>
-              <button type="button" name="button" class="button is-info">Cancelar</button>
-        </div>
-      </div>
-      <button class="modal-close is-large" aria-label="close"></button>
-    </div>
-    </div>
+      <h2 class="title is-1 has-text-centered"> Métodos de Pago existente</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Método de pago</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Efectivo</td>
+            <td><button class="button is-danger js-modal-trigger" data-target="modal-js-example">
+                <i class="fas fa-trash-alt"></i>
+              </button></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Tarjeta de Crédito</td>
+            <td><button class="button is-danger js-modal-trigger" data-target="modal-js-example">
+                <i class="fas fa-trash-alt"></i>
+              </button></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Tarjeta de Débito</td>
+            <td><button class="button is-danger js-modal-trigger" data-target="modal-js-example">
+                <i class="fas fa-trash-alt"></i>
+              </button></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Cheque</td>
+            <td><button class="button is-danger js-modal-trigger" data-target="modal-js-example">
+                <i class="fas fa-trash-alt"></i>
+              </button></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Transferencia</td>
+            <td><button class="button is-danger js-modal-trigger" data-target="modal-js-example">
+                <i class="fas fa-trash-alt"></i>
+              </button></td>
+          </tr>
+        </tbody>
+      </table>
+      
+</div>
   </div>
 </div>
+
+  
+
 <script async type="text/javascript" src="../../../assets/js/dashboard.js"></script>
 
