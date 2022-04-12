@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { SearcherComponent } from './components/searcher/searcher.component';
 import { EditarPerfilComponent } from './components/admin-dashboard/editar-perfil/editar-perfil.component';
 import { HeroComponent } from './components/hero/hero.component';
@@ -43,7 +44,8 @@ import { AboutUsViewComponent } from './components/about-us-view/about-us-view.c
 import { HeroPresentationComponent } from './components/hero-presentation/hero-presentation.component';
 import { OrderComponent } from './components/order/order.component';
 import { PaymentComponent } from './components/payment/payment.component';
-import { FormsModule } from '@angular/forms';
+import { ReportsFormsViewComponent } from './components/reports-forms-view/reports-forms-view.component';
+import { ProductsDetailsViewComponent } from './components/productos-view/products-details-view/products-details-view.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +88,9 @@ import { FormsModule } from '@angular/forms';
     OrderComponent,
     PaymentComponent,
     EditarPerfilComponent,
-    SearcherComponent
+    SearcherComponent,
+    ReportsFormsViewComponent,
+    ProductsDetailsViewComponent,
 
   ],
   imports: [

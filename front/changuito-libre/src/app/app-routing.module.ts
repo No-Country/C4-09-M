@@ -1,3 +1,4 @@
+import { ReportsFormsViewComponent } from './components/reports-forms-view/reports-forms-view.component';
 import { EditarPerfilComponent } from './components/admin-dashboard/editar-perfil/editar-perfil.component';
 import { AdminUsuarioModificarComponent } from './components/admin-dashboard/admin-usuario-modificar/admin-usuario-modificar.component';
 import { AdminUsuarioComponent } from './components/admin-dashboard/admin-usuario/admin-usuario.component';
@@ -29,6 +30,7 @@ import { AdminMerchComponent } from './components/admin-dashboard/admin-merch/ad
 import { AdminPerfilComponent } from './components/admin-dashboard/admin-perfil/admin-perfil.component';
 import { AdminReportesComponent } from './components/admin-dashboard/admin-reportes/admin-reportes.component';
 import { AdminSideBarComponent } from './components/admin-dashboard/admin-side-bar/admin-side-bar.component';
+import { ProductsDetailsViewComponent } from './components/productos-view/products-details-view/products-details-view.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent},
@@ -52,9 +54,11 @@ const routes: Routes = [
   { path: 'merch-perfil', component: MerchPerfilComponent},
   { path: 'merch-perfil-modificar', component: MerchPerfilModificarComponent},
   { path: 'registrarse', component: RegistrationUsersComponent },
-  { path: 'productos', component: ProductosViewComponent },
+  { path: 'productos', component: ProductosViewComponent},
+  { path: 'products-view-detail', component: ProductsDetailsViewComponent},
   { path: 'us', component: AboutUsViewComponent },
   { path: 'mi-perfil', component: PerfilUsuarioComponent },
+  { path: 'report-us', component: ReportsFormsViewComponent },
 ];
 
 @NgModule({
