@@ -1,3 +1,16 @@
+import { SignupService } from './services/signup.service';
+import { SigninService } from './services/signin.service';
+import { SearcherService } from './services/searcher.service';
+import { ReportService } from './services/report.service';
+import { ProductCarouselService } from './services/product-carousel.service';
+import { ProductService } from './services/product.service';
+import { PaymentService } from './services/payment.service';
+import { OrderService } from './services/order.service';
+import { MerchService } from './services/merch.service';
+import { LandingPageService } from './services/landing-page.service';
+import { ImageService } from './services/image.service';
+import { ContentService } from './services/content.service';
+import { CategoryService } from './services/category.service';
 import { FormsModule } from '@angular/forms';
 import { SearcherComponent } from './components/searcher/searcher.component';
 import { EditarPerfilComponent } from './components/admin-dashboard/editar-perfil/editar-perfil.component';
@@ -46,6 +59,8 @@ import { OrderComponent } from './components/order/order.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { ReportsFormsViewComponent } from './components/reports-forms-view/reports-forms-view.component';
 import { ProductsDetailsViewComponent } from './components/productos-view/products-details-view/products-details-view.component';
+import { AdminService } from './services/admin.service';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -99,7 +114,9 @@ import { ProductsDetailsViewComponent } from './components/productos-view/produc
     FormsModule,
     IvyCarouselModule,
   ],
-  providers: [],
+  providers: [AdminService, CategoryService, ContentService, ImageService, LandingPageService,
+  MerchService, OrderService, PaymentService, ProductService, ProductCarouselService,
+  ReportService, SearcherService, SigninService, SignupService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
