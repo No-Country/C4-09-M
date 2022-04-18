@@ -1,7 +1,7 @@
 export interface Product{
     name: string;
     style: string;
-    price: number;
+    precio: number;
     stock: number;
     image: string;
     quantity: number;

@@ -1,7 +1,5 @@
+<h3 class="title is-size-3 has-text-black">Total Changuito</h3>
 <table class="table table-primary table-striped">
-  <div class="column is-12 is-4-widescreen">
-    <div class="color p-6 p-16-desktop">
-      <h3 class="title is-size-3 has-text-white mb-6">Total Changuito</h3>
       <thead>
         <tr>
           <th>Producto</th>
@@ -14,11 +12,10 @@
           <tr>
             <td>{{product.name}}</td>
             <td>{{product.quantity}}</td>
+            <td>{{product.precio | currency:'ARS'}}</td>
           </tr>
         </ng-container>
       </tbody>
-    </div>
-  </div>
 </table>
 
 <div class="mb-10 is-flex is-justify-content-space-between is-align-items-center">
