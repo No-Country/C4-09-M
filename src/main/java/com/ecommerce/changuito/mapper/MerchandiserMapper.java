@@ -1,9 +1,8 @@
 package com.ecommerce.changuito.mapper;
 
-import com.ecommerce.changuito.dtos.MerchandiserDTO;
-import com.ecommerce.changuito.entities.MerchandiserEntity;
-import com.ecommerce.changuito.entities.City.CityEnum;
+import com.ecommerce.changuito.dto.MerchandiserDto;
 
+import com.ecommerce.changuito.entity.MerchandiserEntity;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 

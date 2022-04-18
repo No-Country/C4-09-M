@@ -3,9 +3,8 @@ package com.ecommerce.changuito.mapper;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ecommerce.changuito.dtos.OrderDTO;
-import com.ecommerce.changuito.entities.OrderEntity;
-import com.ecommerce.changuito.entities.CartEntity;
+import com.ecommerce.changuito.dto.OrderDTO;
+import com.ecommerce.changuito.entity.OrderEntity;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
