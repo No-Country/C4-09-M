@@ -3,6 +3,7 @@ package com.ecommerce.changuito.Servicies.Impl;
 
 import com.ecommerce.changuito.Dto.CategoryDto;
 import com.ecommerce.changuito.Entities.Category;
+import com.ecommerce.changuito.Errors.ErrorService;
 import com.ecommerce.changuito.Mapper.CategoryMapper;
 import com.ecommerce.changuito.Repositories.CategoryRepository;
 import com.ecommerce.changuito.Servicies.CategoryService;
@@ -51,13 +52,26 @@ public class CategoryServiceImpl implements CategoryService
     }
 
     @Override
-    public void delete(Long id) throws Exception {
+    @Transactional
+    public void delete(Long id) throws ErrorService {
         
         Optional<Category> answer= categoryRepository.findById(id);
         if (answer.isPresent()) {
             categoryRepository.deleteById(id);
         } else {
-            throw new Exception("No existe categoria para eliminar");
+            throw new ErrorService("No existe categoria para eliminar");
+        }
+    }
+
+    @Override
+    public CategoryDto getById(Long id) throws ErrorService {
+        
+        Optional<Category> answer= categoryRepository.findById(id);
+        if (answer.isPresent()) {
+            Category category=answer.get();
+            return categoryMapper.categoryToCategoryDto(category);
+        } else {
+             throw new ErrorService("No existe la categoria buscada");
         }
     }
 }

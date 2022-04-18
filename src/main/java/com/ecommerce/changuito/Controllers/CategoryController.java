@@ -2,8 +2,11 @@
 package com.ecommerce.changuito.Controllers;
 
 import com.ecommerce.changuito.Dto.CategoryDto;
+import com.ecommerce.changuito.Errors.ErrorService;
 
 import com.ecommerce.changuito.Servicies.Impl.CategoryServiceImpl;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +49,7 @@ public class CategoryController {
       return ResponseEntity.status(HttpStatus.CREATED).body(categoryDto1);
     }
     
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<?> updateCategory(@PathVariable Long id,@Valid @RequestBody CategoryDto categoryDto){
         
       CategoryDto  categoryDto1 = categoryService.update(id, categoryDto);
@@ -59,6 +62,15 @@ public class CategoryController {
             categoryService.delete(id);
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         } catch (Exception ex) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+        }
+    }
+    
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getOneById(@PathVariable Long id){
+        try {
+            return ResponseEntity.status(HttpStatus.CREATED).body(categoryService.getById(id));
+        } catch (ErrorService ex) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
         }
     }

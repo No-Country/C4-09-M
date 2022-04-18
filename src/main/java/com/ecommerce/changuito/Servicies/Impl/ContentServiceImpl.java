@@ -3,6 +3,7 @@ package com.ecommerce.changuito.Servicies.Impl;
 
 import com.ecommerce.changuito.Dto.ContentDto;
 import com.ecommerce.changuito.Entities.Content;
+import com.ecommerce.changuito.Errors.ErrorService;
 import com.ecommerce.changuito.Mapper.ContentMapper;
 import com.ecommerce.changuito.Repositories.ContentRepository;
 import com.ecommerce.changuito.Servicies.ContentService;
@@ -31,25 +32,30 @@ public class ContentServiceImpl implements ContentService{
     }
 
     @Override
-    public void delete(Long id) throws Exception{
+    @Transactional
+    public void delete(Long id) throws ErrorService{
 
         Optional<Content> answer= contentRepository.findById(id);
         if (answer.isPresent()) {
             contentRepository.deleteById(id);
         } else {
-             throw  new Exception("No existe contenido a eliminar");
+             throw  new ErrorService("No existe contenido a eliminar");
         }
     }
 
     @Override
-    public ContentDto update(Long id, ContentDto contentDto) {
+    @Transactional
+    public ContentDto update(Long id, ContentDto contentDto)throws ErrorService{
         
         Optional<Content> answer = contentRepository.findById(id);
         if (answer.isPresent()) {
             Content content= answer.get();
-            return contentMapper.contentToContentDto(contentRepository.save(content));
+            content= contentMapper.contentDtoToContent(contentDto);
+            content= contentRepository.save(content);
+            return contentMapper.contentToContentDto(content);
+            
         } else {
-            return null;
+            throw new ErrorService("No existe la unidad de medida a modificar");
         }
     }
 
@@ -58,6 +64,18 @@ public class ContentServiceImpl implements ContentService{
         
         List<ContentDto> contentDtos= contentMapper.contentListToDto(contentRepository.findAll());
         return contentDtos;
+    }
+
+    @Override
+    public ContentDto getById(Long id) throws ErrorService {
+        
+        Optional<Content> answer= contentRepository.findById(id);
+        if (answer.isPresent()) {
+            Content content= answer.get();
+            return contentMapper.contentToContentDto(content);
+        } else {
+            throw new ErrorService("No existe la unidad de medida buscada");
+        }
     }
     
 }

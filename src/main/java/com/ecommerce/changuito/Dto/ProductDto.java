@@ -15,7 +15,8 @@ public class ProductDto {
     private String description;
     private Long id_content;
     private Long id_image;
-    private Double price;
+    private Double wholesaler_price;
+    private Double retail_price;
     private Integer quantity;
     private String status;
     private Long id_category;
