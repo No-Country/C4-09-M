@@ -19,7 +19,8 @@
 </table>
 
 <div class="mb-10 is-flex is-justify-content-space-between is-align-items-center">
-  <span class="title is-size-5 mb-0 has-text-white has-text-weight-bold">Total</span>
-  <span class="title is-size-5 mb-0 has-text-white has-text-weight-bold">{{total()}}</span>
+  <span class="title is-size-5 has-text-black has-text-weight-bold">Total</span>
+  <span class="title is-size-5 mb-0 has-text-black has-text-weight-bold">{{total() | currency: 'ARS'}}</span>
 </div>
-<a class="button is-primary is-fullwidth" href="#">Pagar</a>
+<a href="pagar"><button class=" button zis-primary is-fullwidth">Pagar</button></a>
+<button (click)="emptyCart()" class=" button zis-primary is-fullwidth" href="">Borrar Changuito</button>

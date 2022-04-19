@@ -31,6 +31,8 @@ import { AdminPerfilComponent } from './components/admin-dashboard/admin-perfil/
 import { AdminReportesComponent } from './components/admin-dashboard/admin-reportes/admin-reportes.component';
 import { AdminSideBarComponent } from './components/admin-dashboard/admin-side-bar/admin-side-bar.component';
 import { ProductsDetailsViewComponent } from './components/productos-view/products-details-view/products-details-view.component';
+import { PaymentComponent } from './components/payment/payment.component';
+import { OrderComponent } from './components/order/order.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent},
@@ -59,6 +61,8 @@ const routes: Routes = [
   { path: 'us', component: AboutUsViewComponent },
   { path: 'mi-perfil', component: PerfilUsuarioComponent },
   { path: 'report-us', component: ReportsFormsViewComponent },
+  { path: 'pagar', component: PaymentComponent},
+  {path: 'ticket', component: OrderComponent},
 ];
 
 @NgModule({

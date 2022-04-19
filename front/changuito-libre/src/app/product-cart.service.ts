@@ -14,13 +14,17 @@ export class ProductCartService {
   constructor() { }
 
   addToCart(product:Product){
-    let index = this._products.findIndex(b => b.name === product.name);
+    let index = this._products.findIndex(p => p.name === product.name);
     if(index === -1)
-      this._products.push(product);
+      this._products.push(Object.assign({}, product));
     else
       this._products[index].quantity = product.quantity;
     if(product.quantity == 0){
       this._products.splice(index,1);
     }
+  }
+
+  emptyCart(){
+    this._products.splice(0, this._products.length);
   }
 }

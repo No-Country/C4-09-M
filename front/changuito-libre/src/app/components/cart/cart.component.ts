@@ -15,10 +15,11 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.productsCartService.products.subscribe(data => this.products = data);
-  
-    
   }
 
+  emptyCart(){
+    this.productsCartService.emptyCart();
+  }
   total(){
     let sum=0;
     this.products.forEach(product => {

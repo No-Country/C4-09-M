@@ -16,7 +16,7 @@ export class ProductListComponent implements OnInit {
   constructor(private productsDataService: ProductDataService, private productsCartService: ProductCartService) { }
 
   ngOnInit(): void {
-    this.productsDataService.getAll().subscribe( products => this.products = products);
+    this.productsDataService.products.subscribe( products => this.products = products);
   }
 
   upQuantity(product : Product): void{
@@ -32,5 +32,15 @@ export class ProductListComponent implements OnInit {
       this.productsCartService.addToCart(product);
     }
   }
+
+  verifyProductQuantity(product : Product): void {
+    if(product.stock < product.quantity) {
+      product.quantity = product.stock;
+    }
+  if (product.quantity <0){
+    product.quantity = 0;
+  }
+  }
+
 
 }
