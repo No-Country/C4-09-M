@@ -1,0 +1,29 @@
+<h2 class="title mb-8 mb-20-tablet">Changuito</h2>
+
+<table class="table table-primary table-stripped">
+  <thead>
+    <tr class="" style="border-bottom: 3px solid rgb(247, 244, 244);">
+      <th class="has-text-grey has-text-weight-bold mb-6" style="font-size: 16px;">Descripción</th>
+      <th class="has-text-grey has-text-weight-bold mb-6" style="font-size: 16px;">Precio</th>
+      <th class="has-text-grey has-text-weight-bold mb-6" style="font-size: 16px;">Stock Disponible</th>
+      <th class="has-text-grey has-text-weight-bold mb-6" style="font-size: 16px;"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let product of products">
+      <tr *ngIf="product.stock>0" [ngClass]="{'deleted':product.deleted}">
+        <td class="subtitle mb-2 has-text-weight-bold">{{product.name}}</td>
+        <td>{{product.precio | currency:'ARS'}}</td>
+        <td class="subtitle has-text-info mb-0 has-text-weight-bold">{{product.stock}}</td>
+        <td>
+          <div class="input-group input-group-sm mb-3">
+            <button type="button" class="btn btn-light btn-sm" (click)="downQuantity(product)">-</button>
+            <input class="form-control form-control-sm" type="number" [(ngModel)]="product.quantity"
+              (focusout)="verifyProductQuantity(product)" />
+            <button type="button" class="btn btn-light btn-sm" (click)="upQuantity(product)">+</button>
+          </div>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

@@ -17,7 +17,7 @@ import { EditarPerfilComponent } from './components/admin-dashboard/editar-perfi
 import { HeroComponent } from './components/hero/hero.component';
 import { CartComponent } from './components/cart/cart.component';
 import { AdminMerchComponent } from './components/admin-dashboard/admin-merch/admin-merch.component';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AdminPaymentsComponent } from './components/admin-dashboard/admin-payments/admin-payments.component';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { ProductosViewComponent } from './components/productos-view/productos-view.component';
@@ -61,6 +61,8 @@ import { ReportsFormsViewComponent } from './components/reports-forms-view/repor
 import { ProductsDetailsViewComponent } from './components/productos-view/products-details-view/products-details-view.component';
 import { AdminService } from './services/admin.service';
 import { UserService } from './services/user.service';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductDashboardComponent } from './components/product-dashboard/product-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -106,6 +108,9 @@ import { UserService } from './services/user.service';
     SearcherComponent,
     ReportsFormsViewComponent,
     ProductsDetailsViewComponent,
+    SearcherComponent,
+    ProductListComponent,
+    ProductDashboardComponent,
 
   ],
   imports: [
@@ -113,6 +118,7 @@ import { UserService } from './services/user.service';
     AppRoutingModule,
     FormsModule,
     IvyCarouselModule,
+    HttpClientModule
   ],
   providers: [AdminService, CategoryService, ContentService, ImageService, LandingPageService,
   MerchService, OrderService, PaymentService, ProductService, ProductCarouselService,

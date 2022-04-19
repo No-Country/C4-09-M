@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductCartService } from 'src/app/product-cart.service';
+import { Product } from '../product-list/product';
 
 @Component({
   selector: 'app-cart',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+
+  products : Product[] = [];
+  constructor(private productsCartService: ProductCartService) { }
 
   ngOnInit(): void {
+    this.productsCartService.products.subscribe(data => this.products = data);
   }
 
+  emptyCart(){
+    this.productsCartService.emptyCart();
+  }
+  total(){
+    let sum=0;
+    this.products.forEach(product => {
+      sum += product.quantity * product.precio});
+      return sum;
+  
+  }
 }
+
+
