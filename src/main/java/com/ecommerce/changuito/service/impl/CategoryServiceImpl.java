@@ -1,24 +1,19 @@
 
 package com.ecommerce.changuito.service.impl;
 
-<<<<<<< HEAD:src/main/java/com/ecommerce/changuito/Servicies/Impl/CategoryServiceImpl.java
-import com.ecommerce.changuito.Dto.CategoryDto;
-import com.ecommerce.changuito.Entities.Category;
-import com.ecommerce.changuito.Errors.ErrorService;
-import com.ecommerce.changuito.Mapper.CategoryMapper;
-import com.ecommerce.changuito.Repositories.CategoryRepository;
-import com.ecommerce.changuito.Servicies.CategoryService;
-=======
+
 import com.ecommerce.changuito.dto.CategoryDto;
 import com.ecommerce.changuito.entity.Category;
+import com.ecommerce.changuito.error.ErrorService;
 import com.ecommerce.changuito.mapper.CategoryMapper;
 import com.ecommerce.changuito.repository.CategoryRepository;
 import com.ecommerce.changuito.service.CategoryService;
->>>>>>> backend:src/main/java/com/ecommerce/changuito/service/impl/CategoryServiceImpl.java
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -81,5 +76,19 @@ public class CategoryServiceImpl implements CategoryService
         } else {
              throw new ErrorService("No existe la categoria buscada");
         }
+    }
+    @Override
+    public Page<Category> searchPage(String q, Pageable pageable) {
+        return categoryRepository.searchPage(q, pageable);
+    }
+
+    @Override
+    public Page<Category> orderByAsc(Pageable pageable) {
+        return categoryRepository.orderByAsc(pageable);
+    }
+
+    @Override
+    public Page<Category> orderByDesc(Pageable pageable) {
+        return categoryRepository.orderByDesc(pageable);
     }
 }

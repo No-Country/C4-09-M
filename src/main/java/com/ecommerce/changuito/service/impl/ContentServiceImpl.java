@@ -1,20 +1,13 @@
 
 package com.ecommerce.changuito.service.impl;
 
-<<<<<<< HEAD:src/main/java/com/ecommerce/changuito/Servicies/Impl/ContentServiceImpl.java
-import com.ecommerce.changuito.Dto.ContentDto;
-import com.ecommerce.changuito.Entities.Content;
-import com.ecommerce.changuito.Errors.ErrorService;
-import com.ecommerce.changuito.Mapper.ContentMapper;
-import com.ecommerce.changuito.Repositories.ContentRepository;
-import com.ecommerce.changuito.Servicies.ContentService;
-=======
+
 import com.ecommerce.changuito.dto.ContentDto;
 import com.ecommerce.changuito.entity.Content;
+import com.ecommerce.changuito.error.ErrorService;
 import com.ecommerce.changuito.mapper.ContentMapper;
 import com.ecommerce.changuito.repository.ContentRepository;
 import com.ecommerce.changuito.service.ContentService;
->>>>>>> backend:src/main/java/com/ecommerce/changuito/service/impl/ContentServiceImpl.java
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;

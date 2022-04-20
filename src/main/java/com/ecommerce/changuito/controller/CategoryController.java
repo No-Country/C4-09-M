@@ -3,9 +3,12 @@ package com.ecommerce.changuito.controller;
 
 
 import com.ecommerce.changuito.dto.CategoryDto;
-
 import com.ecommerce.changuito.error.ErrorService;
+
 import com.ecommerce.changuito.service.impl.CategoryServiceImpl;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +37,6 @@ public class CategoryController {
         return ResponseEntity.status(HttpStatus.CREATED).body(categoryService.getAll());
     }
     
-
     @PostMapping("save")
     public ResponseEntity<?> saveCategory(@RequestBody CategoryDto categoryDto){
       CategoryDto  categoryDto1 = categoryService.save(categoryDto);
@@ -59,7 +61,11 @@ public class CategoryController {
     }
     
     @GetMapping("/{id}")
-    public ResponseEntity<?> getOneById(@PathVariable Long id) throws ErrorService {
-        return ResponseEntity.status(HttpStatus.CREATED).body(categoryService.getById(id));
-    }
+    public ResponseEntity<?> getOneById(@PathVariable Long id){
+        try {
+            return ResponseEntity.status(HttpStatus.CREATED).body(categoryService.getById(id));
+        } catch (ErrorService ex) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+        }
+
 }

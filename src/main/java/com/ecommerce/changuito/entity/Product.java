@@ -1,22 +1,20 @@
 package com.ecommerce.changuito.entity;
 
 
-import javax.persistence.Entity;
-
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import java.util.HashSet;
-import java.util.Set;
-
 
 @Entity
 @Table(name = "product")
@@ -27,16 +25,15 @@ import java.util.Set;
 @AllArgsConstructor
 public class Product extends BaseEntity{
 
-    @NotBlank(message = "La marca no debe estar vacia o ser nula")
+    
     private String brand;
-
-    @NotBlank(message = "El nombre del producto no debe estar vacio o ser nulo")
+    
     private String name;
-
-    @NotBlank(message = "La descripcion no debe estar vacia")
+    
     private String description;
-
-    private Long id_content;
+    
+    @ManyToOne
+    private Content content;
     
     private Long id_image;
     
@@ -44,18 +41,18 @@ public class Product extends BaseEntity{
     
     private Double retail_price;
 
-    @JsonIgnore
-    @ManyToMany
-    private Set<CartEntity> carts = new HashSet<>();
-
-    @NotEmpty(message = "El precio no debe ser nulo")
-    private Double price;
-
-    @NotEmpty(message = "La cantidad no debe ser nula")
-    private Integer quantity;
-
+    
     private String status;
     
-    private Long id_category;
+    private Long stock;
+    
+    @JsonIgnore
+    @ManyToMany
+    @JoinTable(name="product_cart", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "id_cart"))
+    private Set<CartEntity> carts = new HashSet<CartEntity>();
+    
+    @ManyToOne
+    private Category category;
 
+   
 }

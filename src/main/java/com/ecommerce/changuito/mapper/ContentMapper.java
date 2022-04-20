@@ -2,6 +2,7 @@
 package com.ecommerce.changuito.mapper;
 
 import com.ecommerce.changuito.dto.ContentDto;
+import com.ecommerce.changuito.entity.Category;
 import com.ecommerce.changuito.entity.Content;
 import java.util.ArrayList;
 import java.util.List;

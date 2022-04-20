@@ -2,12 +2,12 @@
 package com.ecommerce.changuito.controller;
 
 
-import javax.validation.Valid;
-
-import com.ecommerce.changuito.error.ErrorService;
-import org.springframework.beans.factory.annotation.Autowired;
 import com.ecommerce.changuito.dto.ContentDto;
+import com.ecommerce.changuito.error.ErrorService;
 import com.ecommerce.changuito.service.impl.ContentServiceImpl;
+import javax.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -41,8 +41,13 @@ public class ContentController {
     }
     
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateContent(@PathVariable Long id, @Valid @RequestBody ContentDto contentDto) throws ErrorService {
-        return ResponseEntity.status(HttpStatus.OK).body(contentService.update(id, contentDto));
+    public ResponseEntity<?> updateContent(@PathVariable Long id, @Valid @RequestBody ContentDto contentDto){
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(contentService.update(id, contentDto));
+        } catch (ErrorService ex) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(ex.getMessage());
+        }
+
     }
     
     @DeleteMapping("/{id}")
@@ -56,7 +61,11 @@ public class ContentController {
     }
     
     @GetMapping("/{id}")
-    public ResponseEntity<?> getOneById(@PathVariable Long id) throws ErrorService {
-        return ResponseEntity.status(HttpStatus.CREATED).body(contentService.getById(id));
+    public ResponseEntity<?> getOneById(@PathVariable Long id){
+        try {
+            return ResponseEntity.status(HttpStatus.CREATED).body(contentService.getById(id));
+        } catch (ErrorService ex) {
+            return ResponseEntity.status(HttpStatus.CREATED).body(ex.getMessage());
+        }
     }
 }
