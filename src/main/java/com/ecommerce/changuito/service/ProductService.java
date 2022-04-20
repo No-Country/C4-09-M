@@ -26,6 +26,4 @@ public interface ProductService {
     public Page<Product> retail_priceOrderByAsc( Pageable pageable);
     public Page<Product> retail_priceOrderByDesc( Pageable pageable);
     public Page<Product> productForCategory(Long id,Pageable pageable);
-    ProductDto getById(Long id)throws ErrorService;
-    public void validation(ProductDto productDto) throws Exception;
 }

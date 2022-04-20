@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ContentRepository extends JpaRepository<Content, Long> {
     
+
     @Query(value = "select * from Content ",
             countQuery = "select count(*) from Content",
             nativeQuery = true)

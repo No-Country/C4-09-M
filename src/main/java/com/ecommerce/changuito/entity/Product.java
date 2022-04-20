@@ -1,5 +1,6 @@
 package com.ecommerce.changuito.entity;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.HashSet;
 import java.util.Set;
@@ -23,6 +24,7 @@ import org.hibernate.annotations.Where;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product extends BaseEntity{
+
     
     private String brand;
     
@@ -38,6 +40,7 @@ public class Product extends BaseEntity{
     private Double wholesaler_price;
     
     private Double retail_price;
+
     
     private String status;
     

@@ -1,5 +1,6 @@
 package com.ecommerce.changuito.service.impl;
 
+
 import com.ecommerce.changuito.dto.ProductDto;
 import com.ecommerce.changuito.entity.Product;
 import com.ecommerce.changuito.error.ErrorService;
@@ -89,6 +90,7 @@ public class ProductServiceImpl implements ProductService {
         if (productDto.getDescription()==null || productDto.getDescription().isEmpty()) {
             throw new ErrorService("La descripcion del producto no debe ser nulo o estar vacio");
         }
+
 //        if (productDto.getContentDto().getId()==null) {
 //            throw new ErrorService("Debe elegir la unidad de medida del producto");
 //        }
@@ -104,6 +106,7 @@ public class ProductServiceImpl implements ProductService {
         if (productDto.getQuantity()==null) {
             throw new ErrorService("La cantidad del producto no debe ser nulo o estar vacio");
         }
+
 //        if (productDto.getCategoryDto().getId()==null) {
 //            throw new ErrorService("El rubro del producto no debe ser nulo o estar vacio");
 //        }
@@ -115,6 +118,7 @@ public class ProductServiceImpl implements ProductService {
         }
         
     }
+
 
     @Override
     public Page<Product> getAllPage(Pageable pageable){

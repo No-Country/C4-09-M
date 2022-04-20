@@ -6,6 +6,7 @@ import com.ecommerce.changuito.error.ErrorService;
 import com.ecommerce.changuito.service.impl.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -31,6 +32,7 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.CREATED).body(productService.getAll());
     }
     
+
     @GetMapping("paged")
     public ResponseEntity<?>getAllPage(Pageable pageable){
         return ResponseEntity.status(HttpStatus.CREATED).body(productService.getAllPage(pageable));

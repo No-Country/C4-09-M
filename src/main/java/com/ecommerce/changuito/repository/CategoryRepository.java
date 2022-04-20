@@ -1,6 +1,7 @@
 package com.ecommerce.changuito.repository;
 
 import com.ecommerce.changuito.entity.Category;
+
 import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,10 +13,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long> {
     
-//    @Query(value = "select * from Category",
-//     countQuery = "select count(*) from Category",
-//    nativeQuery=true)
-//    Page<Category> searchPage(Pageable pageable);
     
     @Query(value = "select * from Category where name LIKE '%q%'",
             countQuery = "select count(*) from Category",

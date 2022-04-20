@@ -1,11 +1,13 @@
 
 package com.ecommerce.changuito.controller;
 
+
 import com.ecommerce.changuito.dto.ContentDto;
 import com.ecommerce.changuito.error.ErrorService;
 import com.ecommerce.changuito.service.impl.ContentServiceImpl;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -45,6 +47,7 @@ public class ContentController {
         } catch (ErrorService ex) {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(ex.getMessage());
         }
+
     }
     
     @DeleteMapping("/{id}")

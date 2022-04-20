@@ -1,6 +1,7 @@
 
 package com.ecommerce.changuito.service.impl;
 
+
 import com.ecommerce.changuito.dto.CategoryDto;
 import com.ecommerce.changuito.entity.Category;
 import com.ecommerce.changuito.error.ErrorService;
@@ -76,7 +77,6 @@ public class CategoryServiceImpl implements CategoryService
              throw new ErrorService("No existe la categoria buscada");
         }
     }
-
     @Override
     public Page<Category> searchPage(String q, Pageable pageable) {
         return categoryRepository.searchPage(q, pageable);
