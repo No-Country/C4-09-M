@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoguinComponent implements OnInit {
 
-  constructor() { }
+  username?: string;
+  password?: string;
+  messages: any;
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
+
 
 }

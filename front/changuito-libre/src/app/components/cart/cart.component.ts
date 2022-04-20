@@ -26,7 +26,7 @@ export class CartComponent implements OnInit {
     this.products.forEach(product => {
       sum += product.quantity * product.precio});
       return sum;
-  
+
   }
 }
 

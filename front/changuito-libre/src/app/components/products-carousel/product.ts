@@ -6,5 +6,5 @@ export interface Product{
     image: string;
     quantity: number;
     deleted: boolean;
-     
+
 }

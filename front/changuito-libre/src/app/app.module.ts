@@ -1,3 +1,6 @@
+import { AuthInterceptor, authInterceptorProviders } from './helper/auth-interceptor';
+import { TokenStorageService } from './services/token-storage.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { SignupService } from './services/signup.service';
 import { SigninService } from './services/signin.service';
 import { SearcherService } from './services/searcher.service';
@@ -63,7 +66,6 @@ import { AdminService } from './services/admin.service';
 import { UserService } from './services/user.service';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductDashboardComponent } from './components/product-dashboard/product-dashboard.component';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -124,7 +126,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
   ],
   providers: [AdminService, CategoryService, ContentService, ImageService, LandingPageService,
   MerchService, OrderService, PaymentService, ProductService, ProductCarouselService,
-  ReportService, SearcherService, SigninService, SignupService, UserService],
+  ReportService, SearcherService, SigninService, SignupService, UserService, TokenStorageService, AuthInterceptor, authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,8 +1,9 @@
-
-
-
-
-<router-outlet></router-outlet>
-
-
-
+<!--<div *ngIf="showMerchBoard" routerLink="merchandiser-dashboard">
+  <div *ngIf="showAdminBoard" routerLink="admin">
+    <div *ngIf="!isLoggedIn" routerLink="login">
+      <div *ngIf="isLoggedIn" routerLink="">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
