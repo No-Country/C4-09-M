@@ -68,6 +68,7 @@ public class UserDetailsCustomService implements UserDetailsService {
         List<Role> roles = new ArrayList<>();
         roles.add(roleService.findByName("ROLE_ADMIN"));
         user.setRoles(roles);
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         UserDTO result = userMapper.userEntity2UserDto(userRepository.save(user));
         return result;
     }
