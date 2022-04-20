@@ -5,6 +5,7 @@ import com.ecommerce.changuito.auth.dto.AuthenticationResponse;
 import com.ecommerce.changuito.auth.dto.UserDTO;
 import com.ecommerce.changuito.auth.service.JwtUtils;
 import com.ecommerce.changuito.auth.service.UserDetailsCustomService;
+import com.ecommerce.changuito.entity.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -49,5 +50,11 @@ public class UserAuthController {
         final String jwt = jwtTokenUtil.generateToken(userDetails);
         return ResponseEntity.ok(new AuthenticationResponse(jwt));
 
+    }
+
+    @PostMapping("/signup/admin")
+    public ResponseEntity<?> signUp(@Valid @RequestBody UserEntity userEntity) throws Exception{
+        this.userDetailsCustomService.createAdmin(userEntity);
+        return ResponseEntity.status(HttpStatus.CREATED).body(userEntity);
     }
 }
