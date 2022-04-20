@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from './product';
+import { ProductCartService } from 'src/app/product-cart.service';
+import { ProductDataService } from 'src/app/product-data.service';
+
 
 @Component({
   selector: 'app-products-carousel',
@@ -7,9 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsCarouselComponent implements OnInit {
 
-  constructor() { }
+  products : Product[] = [];
+
+  constructor(private productsDataService: ProductDataService, private productsCartService: ProductCartService) { }
 
   ngOnInit(): void {
+    this.productsDataService.products.subscribe( products => this.products = products);
+
+  }
+  upQuantity(product : Product): void{
+    this.productsCartService.addToCart(product);
   }
 
 }

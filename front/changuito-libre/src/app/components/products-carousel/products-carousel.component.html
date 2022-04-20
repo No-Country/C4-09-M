@@ -3,15 +3,15 @@
     </div>
     <div class="offset-md-0 col-md-12">
       <carousel [loop]="true" [cellsToScroll]="1" [objectFit]="'cover'" [lightDOM]="true" class="carousel--slider-aligment" style="height: 400px;">
-
+        <ng-container *ngFor="let product of products">
         <div class="carousel-cell">
           <div class="card h-100 card-border-none">
             <img class="card-img" src="../../../assets/img/pro2.jpg" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-tittle">Aceite Oliva Extra Virgen</h5>
-              <p class="card-text"><b class="global-text-color mr-1">450.00 AR</b> <s>500.00 AR</s></p>
+              <h5 class="card-tittle">{{product.name}}</h5>
+              <p class="card-text"><b class="global-text-color mr-1">{{product.precio}}</b> <s>500.00 AR</s></p>
               <div class="d-flex justify-content-center">
-                <a href="#" class="bnt btn-sm btn-light">Añadir al carrito<i class="fa fa-shopping-cart ml-1"></i></a>
+                <button type="" class="bnt btn-sm btn-light"(click)="upQuantity(product)">Añadir al carrito<i class="fa fa-shopping-cart ml-1"></i></button>
               </div>
             </div>
           </div>
@@ -132,6 +132,7 @@
             </div>
           </div>
         </div>
+      </ng-container>
       </carousel>
     </div>
 </div>
