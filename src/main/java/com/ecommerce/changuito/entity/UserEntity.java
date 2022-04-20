@@ -1,5 +1,6 @@
 package com.ecommerce.changuito.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -42,6 +43,7 @@ public class UserEntity extends BaseEntity implements UserDetails {
             inverseJoinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "id")
             )
+    @JsonManagedReference
     private List<Role> roles;
 
     private boolean accountNonExpired;

@@ -1,5 +1,6 @@
 package com.ecommerce.changuito.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,7 +25,9 @@ public class Role extends BaseEntity{
     @NotEmpty(message = "Role name can't be empty")
     private String name;
 
+
     @ManyToMany(mappedBy = "roles")
+    @JsonBackReference
     private List<UserEntity> users;
 
 }
