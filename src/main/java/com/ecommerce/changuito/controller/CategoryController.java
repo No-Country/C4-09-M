@@ -1,8 +1,10 @@
 
 package com.ecommerce.changuito.controller;
 
+
 import com.ecommerce.changuito.dto.CategoryDto;
 
+import com.ecommerce.changuito.error.ErrorService;
 import com.ecommerce.changuito.service.impl.CategoryServiceImpl;
 import javax.validation.Valid;
 
@@ -32,21 +34,14 @@ public class CategoryController {
         return ResponseEntity.status(HttpStatus.CREATED).body(categoryService.getAll());
     }
     
-//    @GetMapping("/{id}")
-//    public ResponseEntity<?> getOne(@PathVariable Long id){
-//        try {
-//            return ResponseEntity.status(HttpStatus.OK).body(categoryService.findById(id));
-//        } catch (Exception e) {
-//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-//        }
-//    }
+
     @PostMapping("save")
     public ResponseEntity<?> saveCategory(@RequestBody CategoryDto categoryDto){
       CategoryDto  categoryDto1 = categoryService.save(categoryDto);
       return ResponseEntity.status(HttpStatus.CREATED).body(categoryDto1);
     }
     
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<?> updateCategory(@PathVariable Long id,@Valid @RequestBody CategoryDto categoryDto){
         
       CategoryDto  categoryDto1 = categoryService.update(id, categoryDto);
@@ -61,5 +56,10 @@ public class CategoryController {
         } catch (Exception ex) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
         }
+    }
+    
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getOneById(@PathVariable Long id) throws ErrorService {
+        return ResponseEntity.status(HttpStatus.CREATED).body(categoryService.getById(id));
     }
 }

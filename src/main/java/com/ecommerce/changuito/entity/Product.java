@@ -2,8 +2,8 @@ package com.ecommerce.changuito.entity;
 
 
 import javax.persistence.Entity;
+
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -16,6 +16,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import java.util.HashSet;
 import java.util.Set;
+
 
 @Entity
 @Table(name = "product")
@@ -36,13 +37,16 @@ public class Product extends BaseEntity{
     private String description;
 
     private Long id_content;
+    
+    private Long id_image;
+    
+    private Double wholesaler_price;
+    
+    private Double retail_price;
 
     @JsonIgnore
     @ManyToMany
     private Set<CartEntity> carts = new HashSet<>();
-
-//    @NotEmpty("La imagen no debe estar vacia")
-//    private Long id_image;
 
     @NotEmpty(message = "El precio no debe ser nulo")
     private Double price;
@@ -51,7 +55,7 @@ public class Product extends BaseEntity{
     private Integer quantity;
 
     private String status;
+    
     private Long id_category;
-
 
 }

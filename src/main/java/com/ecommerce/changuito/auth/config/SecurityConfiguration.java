@@ -40,14 +40,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable()
-                .authorizeRequests().antMatchers("/signin",
-                        "/merchandisers/signup",
-                        "/clients/signup").permitAll()
-                .anyRequest().authenticated()
-                .and().exceptionHandling()
-                .and().sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-
+                .authorizeRequests().antMatchers("/**").permitAll();
+               // .and().exceptionHandling()
+               // .and().sessionManagement()
+               // .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+//.authorizeRequests().antMatchers("/signin",
+//                        "/merchandisers/signup",
+//                        "/clients/signup").permitAll()
+        //.anyRequest().authenticated()
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
