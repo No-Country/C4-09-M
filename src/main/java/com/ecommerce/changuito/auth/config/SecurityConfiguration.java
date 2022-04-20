@@ -41,13 +41,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable()
                 .authorizeRequests().antMatchers("/**").permitAll()
-                .anyRequest().authenticated()
                 .and().exceptionHandling()
                 .and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 //.authorizeRequests().antMatchers("/signin",
 //                        "/merchandisers/signup",
 //                        "/clients/signup").permitAll()
+        //.anyRequest().authenticated()
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
