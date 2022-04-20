@@ -96,10 +96,10 @@
             <div class="table-responsive">
               <table class="table table-hover">
                 <tbody><tr *ngFor="let product of products | filter:searchText">
-                  <td class="image"><img src="../../../assets/img/pro1.jpg" alt=""></td>
+                 <a href="products-view-detail"> <td class="image"><img src="../../../assets/img/pro1.jpg" alt=""></td></a>
                   <td class="product"><strong>{{product.name}}</strong><br>Descripción del producto.</td>
                   <td class="rate text-right"><span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></span></td>
-                  <td class="price text-right">{{product.precio}}</td>
+                  <td class="price text-right">{{product.price | currency: 'ARS'}}</td>
                 </tr>
                 <tr>
                   <td class="image"><img src="../../../assets/img/pro1.jpg" alt=""></td>
