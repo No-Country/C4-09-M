@@ -13,7 +13,7 @@
     <ng-container *ngFor="let product of products">
       <tr *ngIf="product.stock>0" [ngClass]="{'deleted':product.deleted}">
         <td class="subtitle mb-2 has-text-weight-bold">{{product.name}}</td>
-        <td>{{product.precio | currency:'ARS'}}</td>
+        <td>{{product.price | currency:'ARS'}}</td>
         <td class="subtitle has-text-info mb-0 has-text-weight-bold">{{product.stock}}</td>
         <td>
           <div class="input-group input-group-sm mb-3">
