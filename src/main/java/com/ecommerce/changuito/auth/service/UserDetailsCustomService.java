@@ -1,6 +1,7 @@
 package com.ecommerce.changuito.auth.service;
 
 import com.ecommerce.changuito.auth.dto.UserDTO;
+import com.ecommerce.changuito.auth.mapper.UserMapper;
 import com.ecommerce.changuito.auth.repository.UserRepository;
 import com.ecommerce.changuito.entity.Role;
 import com.ecommerce.changuito.entity.UserEntity;
@@ -27,6 +28,9 @@ public class UserDetailsCustomService implements UserDetailsService {
 
     @Autowired
     private RoleService roleService;
+
+    @Autowired
+    private UserMapper userMapper;
 
     private final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
@@ -60,10 +64,11 @@ public class UserDetailsCustomService implements UserDetailsService {
         return userEntity;
     }
 
-    public UserEntity createAdmin(UserEntity user){
+    public UserDTO createAdmin(UserEntity user){
         List<Role> roles = new ArrayList<>();
         roles.add(roleService.findByName("ROLE_ADMIN"));
         user.setRoles(roles);
-        return userRepository.save(user);
+        UserDTO result = userMapper.userEntity2UserDto(userRepository.save(user));
+        return result;
     }
 }
