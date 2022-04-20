@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -73,5 +75,20 @@ public class CategoryServiceImpl implements CategoryService
         } else {
              throw new ErrorService("No existe la categoria buscada");
         }
+    }
+
+    @Override
+    public Page<Category> searchPage(String q, Pageable pageable) {
+        return categoryRepository.searchPage(q, pageable);
+    }
+
+    @Override
+    public Page<Category> orderByAsc(Pageable pageable) {
+        return categoryRepository.orderByAsc(pageable);
+    }
+
+    @Override
+    public Page<Category> orderByDesc(Pageable pageable) {
+        return categoryRepository.orderByDesc(pageable);
     }
 }

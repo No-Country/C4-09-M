@@ -1,7 +1,9 @@
 package com.ecommerce.changuito.Entities;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,7 +25,8 @@ public class Product extends BaseEntity{
     
     private String description;
     
-    private Long id_content;
+    @ManyToOne
+    private Content content;
     
     private Long id_image;
     
@@ -35,7 +38,10 @@ public class Product extends BaseEntity{
     
     private String status;
     
-    private Long id_category;
+    private Long stock;
+    
+    @ManyToOne
+    private Category category;
 
    
 }

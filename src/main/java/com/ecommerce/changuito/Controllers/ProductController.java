@@ -5,6 +5,7 @@ import com.ecommerce.changuito.Dto.ProductDto;
 import com.ecommerce.changuito.Errors.ErrorService;
 import com.ecommerce.changuito.Servicies.Impl.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -28,6 +29,11 @@ public class ProductController {
     @GetMapping("all")
     public ResponseEntity<?> getAll(){
         return ResponseEntity.status(HttpStatus.CREATED).body(productService.getAll());
+    }
+    
+    @GetMapping("paged")
+    public ResponseEntity<?>getAllPage(Pageable pageable){
+        return ResponseEntity.status(HttpStatus.CREATED).body(productService.getAllPage(pageable));
     }
     
     @PostMapping("save")
@@ -68,6 +74,56 @@ public class ProductController {
         } catch (ErrorService ex) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
         }
+    }
+    
+   @GetMapping("search")
+    public ResponseEntity<?> searchPage(String q, Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(productService.searchPage(q, pageable));
+    }
+
+    @GetMapping("brandAsc")
+    public ResponseEntity<?> brandOrderByAsc( Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(productService.brandOrderByAsc(pageable));
+    }
+
+    @GetMapping("brandDesc")
+    public ResponseEntity<?> brandOrderByDesc( Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(productService.brandOrderByDesc(pageable));
+    }
+
+    @GetMapping("nameAsc")
+    public ResponseEntity<?> nameOrderByAsc( Pageable pageable) {
+         return ResponseEntity.status(HttpStatus.CREATED).body(productService.nameOrderByAsc(pageable));
+    }
+
+    @GetMapping("nameDesc")
+    public ResponseEntity<?> nameOrderByDesc( Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(productService.nameOrderByDesc(pageable));
+    }
+
+    @GetMapping("wholeAsc")
+    public ResponseEntity<?> wholesaler_priceOrderByAsc( Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(productService.wholesaler_priceOrderByAsc(pageable));
+    }
+
+    @GetMapping("wholeDesc")
+    public ResponseEntity<?> wholesaler_priceOrderByDesc(Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(productService.wholesaler_priceOrderByDesc(pageable));
+    }
+
+    @GetMapping("retailAsc")
+    public ResponseEntity<?> retail_priceOrderByAsc( Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(productService.retail_priceOrderByAsc(pageable));
+    }
+
+    @GetMapping("retailDesc")
+    public ResponseEntity<?> retail_priceOrderByDesc( Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(productService.retail_priceOrderByDesc(pageable));
+    }
+    
+    @GetMapping("productCategory/{id}")
+    public ResponseEntity<?> productForCategory(@PathVariable Long id, Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(productService.productForCategory(id,pageable));
     }
     
     

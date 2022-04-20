@@ -4,8 +4,14 @@ package com.ecommerce.changuito.Mapper;
 import com.ecommerce.changuito.Dto.ProductDto;
 import com.ecommerce.changuito.Entities.Product;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -30,4 +36,5 @@ public class ProductMapper {
         }
         return productDtos;
     }
+    
 }
