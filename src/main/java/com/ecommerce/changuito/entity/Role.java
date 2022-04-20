@@ -1,6 +1,7 @@
 package com.ecommerce.changuito.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,7 +28,7 @@ public class Role extends BaseEntity{
 
 
     @ManyToMany(mappedBy = "roles")
-    @JsonBackReference
+    @JsonIgnoreProperties("roles")
     private List<UserEntity> users;
 
 }

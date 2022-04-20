@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.annotations.Where;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -46,6 +47,7 @@ public class ClientEntity extends BaseEntity{
     private LocalDate created;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @UpdateTimestamp
     private LocalDate updated;
 
 }

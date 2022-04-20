@@ -26,7 +26,7 @@ public class ClientMapper {
         System.out.println("*** Client Entity to DTO ***");
         ClientDto dto = modelMapper.map(entity, ClientDto.class);
         dto.setBirthday(entity.getBirthday().toString());
-        dto.setCreated(entity.getCreated().toString());
+
         //dto.setUpdated(entity.getUpdated().toString());
         return dto;
     }
