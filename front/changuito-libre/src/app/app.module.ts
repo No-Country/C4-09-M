@@ -63,6 +63,7 @@ import { AdminService } from './services/admin.service';
 import { UserService } from './services/user.service';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductDashboardComponent } from './components/product-dashboard/product-dashboard.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -118,7 +119,8 @@ import { ProductDashboardComponent } from './components/product-dashboard/produc
     AppRoutingModule,
     FormsModule,
     IvyCarouselModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng2SearchPipeModule
   ],
   providers: [AdminService, CategoryService, ContentService, ImageService, LandingPageService,
   MerchService, OrderService, PaymentService, ProductService, ProductCarouselService,
