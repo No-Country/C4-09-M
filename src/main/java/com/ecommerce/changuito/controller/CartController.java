@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(originPatterns = "*")
+@CrossOrigin(origins = "*")
 @RequestMapping("carts")
 public class CartController {
     
