@@ -57,13 +57,13 @@
             <hr>
             <!-- BEGIN SEARCH INPUT -->
             <div class="input-group">
-              <input type="text" class="form-control" value="Buscar productos">
+              <input type="text" class="form-control" name="search" [(ngModel)]="searchText" value="Buscar productos">
               <span class="input-group-btn">
                 <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
               </span>
             </div>
             <!-- END SEARCH INPUT -->
-            <p>Mostrando todos los resultados que coinciden con "producto"</p>
+            <p>Mostrando todos los resultados que coinciden</p>
 
             <div class="padding"></div>
 
@@ -95,11 +95,11 @@
             <!-- BEGIN TABLE RESULT -->
             <div class="table-responsive">
               <table class="table table-hover">
-                <tbody><tr>
+                <tbody><tr *ngFor="let product of products | filter:searchText">
                   <td class="image"><img src="../../../assets/img/pro1.jpg" alt=""></td>
-                  <td class="product"><strong>Product 1</strong><br>Descripción del producto.</td>
+                  <td class="product"><strong>{{product.name}}</strong><br>Descripción del producto.</td>
                   <td class="rate text-right"><span><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i></span></td>
-                  <td class="price text-right">$350</td>
+                  <td class="price text-right">{{product.precio}}</td>
                 </tr>
                 <tr>
                   <td class="image"><img src="../../../assets/img/pro1.jpg" alt=""></td>
