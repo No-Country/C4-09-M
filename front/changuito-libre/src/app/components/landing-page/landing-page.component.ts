@@ -1,3 +1,4 @@
+import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPageComponent implements OnInit {
 
-  constructor() { }
+  content!: string;
+
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userService.getPublicContent().subscribe(
+      data => {
+        this.content = data;
+      }, err => {
+        this.content = JSON.parse(err.error).message;
+      }
+    );
   }
 
 }

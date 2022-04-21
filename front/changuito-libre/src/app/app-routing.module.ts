@@ -1,3 +1,4 @@
+import { MerchListComponent } from './components/admin-dashboard/merch-list/merch-list.component';
 import { ReportsFormsViewComponent } from './components/reports-forms-view/reports-forms-view.component';
 import { EditarPerfilComponent } from './components/admin-dashboard/editar-perfil/editar-perfil.component';
 import { AdminUsuarioModificarComponent } from './components/admin-dashboard/admin-usuario-modificar/admin-usuario-modificar.component';
@@ -45,6 +46,7 @@ const routes: Routes = [
   { path: 'admin-usuarios-modificar', component: AdminUsuarioModificarComponent},
   { path: 'admin-perfil', component: AdminPerfilComponent},
   { path: 'admin-perfil-editar', component: EditarPerfilComponent},
+  { path: 'admin-merch-list', component: MerchListComponent},
   { path: 'admin-merch-agregar', component: AdminMerchComponent},
   { path: 'admin-reportes', component: AdminReportesComponent},
   { path: 'merchandiser-dashboard', component: MerchandiserDashboardComponent },

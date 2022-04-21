@@ -1,3 +1,4 @@
+import { MerchDataService } from './services/merch-data-service';
 import { AuthInterceptor, authInterceptorProviders } from './helper/auth-interceptor';
 import { TokenStorageService } from './services/token-storage.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -14,7 +15,7 @@ import { LandingPageService } from './services/landing-page.service';
 import { ImageService } from './services/image.service';
 import { ContentService } from './services/content.service';
 import { CategoryService } from './services/category.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearcherComponent } from './components/searcher/searcher.component';
 import { EditarPerfilComponent } from './components/admin-dashboard/editar-perfil/editar-perfil.component';
 import { HeroComponent } from './components/hero/hero.component';
@@ -66,6 +67,7 @@ import { AdminService } from './services/admin.service';
 import { UserService } from './services/user.service';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductDashboardComponent } from './components/product-dashboard/product-dashboard.component';
+import { MerchListComponent } from './components/admin-dashboard/merch-list/merch-list.component';
 
 @NgModule({
   declarations: [
@@ -114,6 +116,7 @@ import { ProductDashboardComponent } from './components/product-dashboard/produc
     SearcherComponent,
     ProductListComponent,
     ProductDashboardComponent,
+    MerchListComponent,
 
   ],
   imports: [
@@ -122,11 +125,12 @@ import { ProductDashboardComponent } from './components/product-dashboard/produc
     FormsModule,
     IvyCarouselModule,
     HttpClientModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    ReactiveFormsModule
   ],
   providers: [AdminService, CategoryService, ContentService, ImageService, LandingPageService,
   MerchService, OrderService, PaymentService, ProductService, ProductCarouselService,
-  ReportService, SearcherService, SigninService, SignupService, UserService, TokenStorageService, AuthInterceptor, authInterceptorProviders],
+  ReportService, SearcherService, SigninService, SignupService, UserService, TokenStorageService, MerchDataService, AuthInterceptor, authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

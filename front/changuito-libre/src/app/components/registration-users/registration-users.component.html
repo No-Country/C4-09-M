@@ -18,131 +18,272 @@
       </div>
     </div>
   </div>
-  <div class="field is-horizontal">
-    <div class="field-label is-normal">
-      <label class="label">Usuario</label>
-    </div>
-    <div class="field-body">
-      <div class="field">
-        <p class="control is-expanded has-icons-left">
-          <input class="input" type="text" placeholder="Name">
-          <span class="icon is-small is-left">
-            <i class="fas fa-user"></i>
-          </span>
-        </p>
+  <form *ngIf="!isSuccessful" [formGroup]="registrerClientForm" name="form-client" (ngSubmit)="f.form.valid && onSubmitClient()" #f="ngForm" novalidate>
+    <div class="field is-horizontal">
+      <div class="field-label is-normal">
+        <label class="label">Nombre</label>
       </div>
-      <div class="field">
-        <p class="control is-expanded has-icons-left has-icons-right">
-          <input class="input is-success" type="email" placeholder="Email">
-          <span class="icon is-small is-left">
-            <i class="fas fa-envelope"></i>
-          </span>
-          <span class="icon is-small is-right">
-            <i class="fas fa-check"></i>
-          </span>
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="field is-horizontal">
-    <div class="field-label is-normal">
-      <label class="label"></label>
-    </div>
-    <div class="field-body">
-      <div class="field">
-        <p class="control is-medium has-icons-left has-icons-right">
-          <input class="input is-success" type="password" placeholder="Password">
-          <span class="icon is-small is-left">
-            <i class="fas fa-lock"></i>
-          </span>
-          <span class="icon is-small is-right">
-            <i class="fas fa-check"></i>
-          </span>
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="field is-horizontal">
-    <div class="field-label"></div>
-    <div class="field-body">
-      <div class="field is-expanded">
-        <div class="field has-addons">
-          <p class="control">
-            <a class="button is-static">
-              +54
-            </a>
+      <div class="field-body">
+        <div class="field">
+          <p class="control is-expanded has-icons-left">
+            <input class="input" type="text" placeholder="Nombre"
+            [(ngModel)]="form.firstname" required minlength="3"
+              maxlength="20" #firstname="ngModel"
+              [ngModelOptions]="{standalone: true}">
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
           </p>
-          <p class="control is-expanded">
-            <input class="input" type="tel" placeholder="Número de teléfono" style="font-weight: bolder;">
+        </div>
+        <div class="field">
+          <p class="control is-expanded has-icons-left">
+            <input class="input" type="text" placeholder="Apellido"
+            [(ngModel)]="form.lastname" required minlength="2"
+              maxlength="25" #lastname="ngModel"
+              [ngModelOptions]="{standalone: true}">
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
           </p>
         </div>
 
       </div>
     </div>
-  </div>
-  <div class="field is-horizontal">
-    <div class="field-label"></div>
-    <div class="field-body">
-      <div class="field is-expanded">
-        <div class="field has-addons">
-          <p class="control">
-            <a class="button is-static">
-              DNI
-            </a>
+    <div class="field is-horizontal">
+      <div class="field-label is-normal">
+        <label class="label">Email</label>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <p class="control is-expanded has-icons-left has-icons-right">
+            <input class="input" type="email" placeholder="Email"
+            [(ngModel)]="form.email" required email
+            #email="ngModel"
+            [ngModelOptions]="{standalone: true}">
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
           </p>
-          <p class="control is-expanded">
-            <input class="input" type="DNI" placeholder="Número de DNI" style="font-weight: bolder;">
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="field is-horizontal">
+      <div class="field-label is-normal">
+        <label class="label">Nombre de Usuario</label>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <p class="control is-expanded has-icons-left">
+            <input class="input" type="text" placeholder="Username"
+            [(ngModel)]="form.username" required minlength="4"
+              maxlength="20" #username="ngModel"
+              [ngModelOptions]="{standalone: true}">
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control is-expanded has-icons-left has-icons-right">
+            <input class="input" type="text" placeholder="Contraseña"
+            [(ngModel)]="form.password"
+            required minlength="6" #password="ngModel"
+            [ngModelOptions]="{standalone: true}">
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="field is-horizontal">
+      <div class="field-label"></div>
+      <div class="field-body">
+        <div class="field is-expanded">
+          <div class="field has-addons">
+            <p class="control">
+              <a class="button is-static">
+                DNI
+              </a>
+            </p>
+            <p class="control is-expanded">
+              <input class="input" type="DNI" placeholder="Número de DNI" style="font-weight: bolder;"
+              [(ngModel)]="form.dni"
+              required minlength="6" #dni="ngModel"
+              [ngModelOptions]="{standalone: true}">
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class="field-label is-normal">
+        <label class="label">Fecha de Nacimiento</label>
+      </div>
+      <div class="field-body">
+        <div class="field has-addons">
+          <p class="control is-expanded has-icons-left has-icons-right">
+            <input class="input" type="date" placeholder="Fecha de Nacimiento"
+            [(ngModel)]="form.birthday" #birthday="ngModel" required
+            [ngModelOptions]="{standalone: true}">
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
           </p>
         </div>
 
       </div>
     </div>
-  </div>
+    <div class="field is-horizontal">
+      <div class="field-label">
 
-
-
-
-  <div class="field is-horizontal">
-    <div class="field-label is-normal">
-      <label class="label">País</label>
-    </div>
-    <div class="field-body">
-      <div class="field is-narrow">
-        <div class="control">
-          <div class="select is-fullwidth">
-            <select>
-
-              <option>Argentina</option>
-              <option>Chile</option>
-              <option>México</option>
-              <option>Paraguay</option>
-              <option>Perú</option>
-              <option>Otro</option>
-            </select>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control">
+            <button class="button is-danger" type="submit">
+              Enviar
+            </button>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </form>
+  <br>
+  <br>
+  <!--
+  <form *ngIf="!isSuccessful" name="form-client" (ngSubmit)="f.form.valid && onSubmitClient()" #f="ngForm" novalidate>
+    <div class="field is-horizontal">
+      <div class="field-label is-normal">
+        <label class="label">Nombre</label>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <p class="control is-expanded has-icons-left">
+            <input class="input" type="text" placeholder="Nombre" [(ngModel)]="form.firstname" required minlength="3"
+              maxlength="20" #firstname="ngModel">
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control is-expanded has-icons-left has-icons-right">
+            <input class="input" type="email" placeholder="Email"
+            [(ngModel)]="form.email" required email
+            #email="ngModel">
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+          </p>
+        </div>
 
-
-
-
-
-  <div class="field is-horizontal">
-    <div class="field-label">
-
+      </div>
     </div>
-    <div class="field-body">
-      <div class="field">
-        <div class="control">
-          <button class="button is-danger">
-            Enviar
-          </button>
+    <div class="field is-horizontal">
+      <div class="field-label is-normal">
+        <label class="label">Descripción</label>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <p class="control is-expanded has-icons-left has-icons-right">
+            <textarea class="textarea" placeholder="Ingresa una descripción de tu comercio" rows="5" maxlength="300"></textarea>
+          </p>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="field is-horizontal">
+      <div class="field-label is-normal">
+        <label class="label">Nombre de Usuario</label>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <p class="control is-expanded has-icons-left">
+            <input class="input" type="text" placeholder="Username" [(ngModel)]="form.username" required minlength="4"
+              maxlength="20" #username="ngModel">
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control is-expanded has-icons-left has-icons-right">
+            <input class="input" type="text" placeholder="Contraseña">
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+          </p>
         </div>
       </div>
     </div>
-  </div>
+
+    <div class="field is-horizontal">
+      <div class="field-label is-normal">
+        <label class="label">Nombre de Usuario</label>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <p class="control is-expanded has-icons-left">
+            <input class="input" type="text" placeholder="Username" [(ngModel)]="form.username" required minlength="4"
+              maxlength="20" #username="ngModel">
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control is-expanded has-icons-left has-icons-right">
+            <input class="input" type="text" placeholder="Contraseña"
+            [(ngModel)]="form.password" required minlength="6" #password="ngModel">
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="field is-horizontal">
+      <div class="field-label"></div>
+      <div class="field-body">
+        <div class="field is-expanded">
+          <div class="field has-addons">
+            <p class="control">
+              <a class="button is-static">
+                DNI
+              </a>
+            </p>
+            <p class="control is-expanded">
+              <input class="input" type="DNI" placeholder="Número de DNI" style="font-weight: bolder;">
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="field is-horizontal">
+      <div class="field-label">
+
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control">
+            <button class="button is-danger">
+              Enviar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  -->
 </div>

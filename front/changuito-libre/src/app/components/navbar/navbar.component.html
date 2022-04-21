@@ -1,10 +1,12 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="changuito">
-      <img src="../../../assets/img/1479847010.svg"> </a>
-    <a class="navbar-item" href="#">El Changuito Libre</a>
+      <img src="../../../assets/img/1479847010.svg">
+      El Changuito Libre
+    </a>
 
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="true" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -47,14 +49,44 @@
       </p>
     </div>
 
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <a href="login"><button class="button is-danger is-outlined" style="color: antiquewhite;">Iniciar
-            Sesión</button></a>
-        <a href="registrarse"><button class="button is-danger is-outlined"
-            style="color: aliceblue;">Registrarse</button></a>
-
-
+    <div *ngIf="!isLoggedIn">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <a href="login"><button class="button is-danger is-outlined" style="color: antiquewhite;">Iniciar
+              Sesión</button></a>
+          <a href="registrarse"><button class="button is-danger is-outlined"
+              style="color: aliceblue;">Registrarse</button></a>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isLoggedIn">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <p>Bienvenido!{{username}}</p>
+          <a href="mi-perfil"><button class="button is-danger is-outlined" style="color: antiquewhite;">Mi perfil</button></a>
+          <button class="button is-danger is-outlined"
+              style="color: aliceblue;" (click)="logout()">Salir</button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isMerch">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <p>Bienvenido!{{username}}</p>
+          <a href="merchandiser-dashboard"><button class="button is-danger is-outlined" style="color: antiquewhite;">Dashboard</button></a>
+          <button class="button is-danger is-outlined"
+              style="color: aliceblue;" (click)="logout()">Salir</button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isAdmin">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <p>Bienvenido!{{this.username}}</p>
+          <a href="admin"><button class="button is-danger is-outlined" style="color: antiquewhite;">Dashboard</button></a>
+          <button class="button is-danger is-outlined"
+              style="color: aliceblue;" (click)="logout()">Salir</button>
+        </div>
       </div>
     </div>
   </div>

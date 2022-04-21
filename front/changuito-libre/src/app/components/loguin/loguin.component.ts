@@ -40,7 +40,7 @@ export class LoguinComponent implements OnInit {
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
 
-        this.navigate()
+        this.router.navigate(['']);
       },
       err => {
         this.errorMessage = err.error.message;
@@ -49,24 +49,5 @@ export class LoguinComponent implements OnInit {
     );
   }
 
-  navigate():void {
-    if(this.isLoggedIn){
-      const user = this.tokenStorage.getUser();
-      this.roles = this.roles;
-
-      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-      this.showClient = this.roles.includes('ROLE_CLIENT');
-      this.showMerchBoard = this.roles.includes('ROLE_MERCHANDISER');
-
-
-      if(this.showClient){
-        this.router.navigate([""]);
-      }else if(this.showMerchBoard){
-        this.router.navigate(["merchandiser-dashboard"])
-      }else if(this.showAdminBoard){
-        this.router.navigate(["admin-dashboard"])
-      }
-    }
-  }
 
 }

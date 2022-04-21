@@ -1,3 +1,7 @@
+import { User } from './../../model/user';
+import { Merch } from './../../model/merch';
+import { UserService } from './../../services/user.service';
+import { MerchService } from './../../services/merch.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminDashboardComponent implements OnInit {
 
-  constructor() { }
+  content!: string;
+  merchandisers!: Merch[];
+  users!: User[];
+
+  constructor(private merchSerice: MerchService, private userService: UserService) { }
 
   ngOnInit(): void {
   }
