@@ -10,6 +10,7 @@ import org.hibernate.annotations.Where;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -23,6 +24,8 @@ import java.util.Set;
 @AllArgsConstructor
 
 public class CartEntity extends BaseEntity {
+
+   @NotBlank(message = "Status is a mandatory field")
    @Column(name = "status", nullable = false, updatable = true)
    @Enumerated(value = EnumType.STRING)
    private EnumStatus enumStatus;
@@ -30,33 +33,21 @@ public class CartEntity extends BaseEntity {
    private String ticket;
 
    @Column(name = "id_cliente", nullable = false, updatable=true)
-   private Integer clienteId;
+   private Integer clientId;
 
    @Column(name = "id_merchandiser", nullable = false, updatable=true)
    private Integer merchandiserId;
 
    @Column(name="update_date")
-   @DateTimeFormat(pattern = "yyyy-MM-dd")
    private LocalDateTime updateDate;
 
    @Column(name = "creation_date")
-   @DateTimeFormat(pattern = "yyyy-MM-dd")
-   private LocalDateTime creationDate = LocalDateTime.now();
+   private LocalDateTime creationDate;
 
    @JsonIgnore
    @ManyToMany(mappedBy = "carts")
    private Set<Product> products = new HashSet<Product>();
 
-   //@JsonIgnore
-   //@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-  // private List<Product> products = new ArrayList<>();
 
-   //@ManyToOne(fetch = FetchType.EAGER, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
-   //@JoinColumn(name = "id_merchandiser")
-   //private MerchandiserEntity merchandiser;
-
- //  @ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
-  // @JoinColumn(name = "id_cliente", nullable = false, updatable=true)
-  // private ClienteEntity cliente;
 
 }

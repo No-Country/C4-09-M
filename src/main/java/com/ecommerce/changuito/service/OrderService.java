@@ -2,13 +2,10 @@ package com.ecommerce.changuito.service;
 
 import java.util.List;
 
-import com.ecommerce.changuito.dto.OrderDTO;
-
-
 
 public interface OrderService {
-    OrderDTO add(OrderDTO dto);
-    List<OrderDTO> getAll();
+    com.ecommerce.changuito.dto.OrderDto add(com.ecommerce.changuito.dto.OrderDto dto);
+    List<com.ecommerce.changuito.dto.OrderDto> getAll();
     void deleteOrder(Long id);
-    OrderDTO update(Long id, OrderDTO dto);
+    com.ecommerce.changuito.dto.OrderDto update(Long id, com.ecommerce.changuito.dto.OrderDto dto);
 }

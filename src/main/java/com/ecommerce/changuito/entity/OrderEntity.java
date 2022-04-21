@@ -23,8 +23,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "details")
-@SQLDelete(sql = "UPDATE details SET deleted = true WHERE id=?")
+@Table(name = "order")
+@SQLDelete(sql = "UPDATE order SET deleted = true WHERE id=?")
 @Where(clause = "deleted=false")
 @Data
 

@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import com.ecommerce.changuito.dto.OrderDTO;
 import com.ecommerce.changuito.entity.OrderEntity;
 import com.ecommerce.changuito.mapper.OrderMapper;
 import com.ecommerce.changuito.repository.OrderRepository;
@@ -25,19 +24,19 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    public OrderDTO add(OrderDTO dto) {
+    public com.ecommerce.changuito.dto.OrderDto add(com.ecommerce.changuito.dto.OrderDto dto) {
         OrderEntity entity = OrderMapper.OrderDto2Entity(dto);
         entity.setUpdateDate(LocalDateTime.now());
         entity.setCreationDate(LocalDateTime.now());
         entity = OrderRepository.save(entity);
-        OrderDTO result = OrderMapper.OrderEntity2Dto(entity);
+        com.ecommerce.changuito.dto.OrderDto result = OrderMapper.OrderEntity2Dto(entity);
         return result;
     }
 
     @Override
     @Transactional
-    public List<OrderDTO> getAll() {
-        List<OrderDTO> results;
+    public List<com.ecommerce.changuito.dto.OrderDto> getAll() {
+        List<com.ecommerce.changuito.dto.OrderDto> results;
         List<OrderEntity> entities = OrderRepository.findAll();
         results = OrderMapper.OrderEntityList2DtosList(entities);
         return results;
@@ -51,12 +50,12 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    public OrderDTO update(Long id, OrderDTO dto) {
+    public com.ecommerce.changuito.dto.OrderDto update(Long id, com.ecommerce.changuito.dto.OrderDto dto) {
         OrderEntity entity = OrderRepository.getById(id);
         if (entity != null){
             entity = OrderMapper.OrderDto2Entity(dto);
             entity = OrderRepository.save(entity);
-            OrderDTO result = OrderMapper.OrderEntity2Dto(entity);
+            com.ecommerce.changuito.dto.OrderDto result = OrderMapper.OrderEntity2Dto(entity);
             return  result;
         }else{
             return null;

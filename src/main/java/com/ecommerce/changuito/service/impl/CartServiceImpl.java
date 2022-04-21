@@ -4,8 +4,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 
-import com.ecommerce.changuito.dto.CartDTO;
 import com.ecommerce.changuito.entity.CartEntity;
 import com.ecommerce.changuito.mapper.CartMapper;
 import com.ecommerce.changuito.repository.CartRepository;
@@ -24,18 +24,18 @@ public class CartServiceImpl implements CartService {
 
     @Override
     @Transactional
-    public CartDTO add(CartDTO dto) {
+    public com.ecommerce.changuito.dto.CartDto add(@Valid com.ecommerce.changuito.dto.CartDto dto) {
         CartEntity entity = cartMapper.cartDto2Entity(dto);
         entity.setUpdateDate(LocalDateTime.now());
         entity.setCreationDate(LocalDateTime.now());
         entity = cartRepository.save(entity);
-        CartDTO result = cartMapper.cartEntity2Dto(entity);
+        com.ecommerce.changuito.dto.CartDto result = cartMapper.cartEntity2Dto(entity);
         return result;
     }
 
     @Override
-    public List<CartDTO> getAll() {
-        List<CartDTO> results;
+    public List<com.ecommerce.changuito.dto.CartDto> getAll() {
+        List<com.ecommerce.changuito.dto.CartDto> results;
         List<CartEntity> entities = cartRepository.findAll();
         results = cartMapper.cartEntityList2DtosList(entities);
         return results;
@@ -49,12 +49,12 @@ public class CartServiceImpl implements CartService {
 
     @Override
     @Transactional
-    public CartDTO update(Long id, CartDTO dto) {
+    public com.ecommerce.changuito.dto.CartDto update(Long id, com.ecommerce.changuito.dto.CartDto dto) {
         CartEntity entity = cartRepository.getById(id);
         if (entity != null){
             entity = cartMapper.cartDto2Entity(dto);
             entity = cartRepository.save(entity);
-            CartDTO result = cartMapper.cartEntity2Dto(entity);
+            com.ecommerce.changuito.dto.CartDto result = cartMapper.cartEntity2Dto(entity);
             return  result;
         }else{
             return null;
