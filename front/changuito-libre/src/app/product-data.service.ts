@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Product } from './components/product-list/product';
 
 
-const URL = 'http://localhost:8080/product/all';
+const URL = 'https://changuito-libre.herokuapp.com/product/all';
 @Injectable({
   providedIn: 'root'
 })
