@@ -3,7 +3,7 @@ package com.ecommerce.changuito.controller;
 import java.util.List;
 
 import com.ecommerce.changuito.service.OrderService;
-
+import com.ecommerce.changuito.dto.OrderDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,8 +25,8 @@ public class OrderController {
     private OrderService OrderService;
 
     @PostMapping
-    public ResponseEntity<?> addCart(@RequestBody com.ecommerce.changuito.dto.OrderDto dto){
-       com.ecommerce.changuito.dto.OrderDto result = OrderService.add(dto);
+    public ResponseEntity<?> addCart(@RequestBody OrderDto dto){
+       OrderDto result = OrderService.add(dto);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
@@ -43,8 +43,8 @@ public class OrderController {
    }
 
    @PutMapping("{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody com.ecommerce.changuito.dto.OrderDto dto){
-        com.ecommerce.changuito.dto.OrderDto result = OrderService.update(id, dto);
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody OrderDto dto){
+        OrderDto result = OrderService.update(id, dto);
         return ResponseEntity.status(HttpStatus.OK).body(result);
    }
 

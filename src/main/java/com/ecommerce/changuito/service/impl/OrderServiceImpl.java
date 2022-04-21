@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.transaction.Transactional;
-
+import com.ecommerce.changuito.dto.OrderDto;
 import com.ecommerce.changuito.entity.OrderEntity;
 import com.ecommerce.changuito.mapper.OrderMapper;
 import com.ecommerce.changuito.repository.OrderRepository;
@@ -35,8 +35,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    public List<com.ecommerce.changuito.dto.OrderDto> getAll() {
-        List<com.ecommerce.changuito.dto.OrderDto> results;
+    public List<OrderDto> getAll() {
+        List<OrderDto> results;
         List<OrderEntity> entities = OrderRepository.findAll();
         results = OrderMapper.OrderEntityList2DtosList(entities);
         return results;
@@ -50,12 +50,12 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    public com.ecommerce.changuito.dto.OrderDto update(Long id, com.ecommerce.changuito.dto.OrderDto dto) {
+    public OrderDto update(Long id, OrderDto dto) {
         OrderEntity entity = OrderRepository.getById(id);
         if (entity != null){
             entity = OrderMapper.OrderDto2Entity(dto);
             entity = OrderRepository.save(entity);
-            com.ecommerce.changuito.dto.OrderDto result = OrderMapper.OrderEntity2Dto(entity);
+            OrderDto result = OrderMapper.OrderEntity2Dto(entity);
             return  result;
         }else{
             return null;
