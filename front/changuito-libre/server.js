@@ -1,13 +1,14 @@
-const express = require('express')
-const path = require('path')
+const path = require('path');
+const express = require('express');
+const app = express();
 
-const app = express()
+// Serve static files
+app.use(express.static(__dirname + '/dist/changuito-libre'));
 
-app.use(express.static('.dist/changuito-libre'));
+// Send all requests to index.html
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname + '/dist/changuito-libre/index.html'));
+});
 
-app.get('/*', (req, res) =>
-    res.sendFile('index.html', {root: 'dist/changuito-libre/'}),
-);
-
-
-app.listen(process.env.PORT || 4200);
+// default Heroku port
+app.listen(process.env.PORT || 5000);
