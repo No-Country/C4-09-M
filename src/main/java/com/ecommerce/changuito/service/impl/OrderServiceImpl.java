@@ -24,12 +24,12 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    public com.ecommerce.changuito.dto.OrderDto add(com.ecommerce.changuito.dto.OrderDto dto) {
+    public OrderDto add(OrderDto dto) {
         OrderEntity entity = OrderMapper.OrderDto2Entity(dto);
         entity.setUpdateDate(LocalDateTime.now());
         entity.setCreationDate(LocalDateTime.now());
         entity = OrderRepository.save(entity);
-        com.ecommerce.changuito.dto.OrderDto result = OrderMapper.OrderEntity2Dto(entity);
+        OrderDto result = OrderMapper.OrderEntity2Dto(entity);
         return result;
     }
 
