@@ -24,7 +24,7 @@ public class CartServiceImpl implements CartService {
 
     @Override
     @Transactional
-    public com.ecommerce.changuito.dto.CartDto add(@Valid CartDto dto) {
+    public CartDto add(@Valid CartDto dto) {
         CartEntity entity = cartMapper.cartDto2Entity(dto);
         entity.setUpdateDate(LocalDateTime.now());
         entity.setCreationDate(LocalDateTime.now());
