@@ -25,7 +25,7 @@ public class CartController {
 
         @PostMapping
         public ResponseEntity<?> addCart(@RequestBody CartDto dto){
-           com.ecommerce.changuito.dto.CartDto result = service.add(dto);
+          CartDto result = service.add(dto);
             return ResponseEntity.status(HttpStatus.OK).body(result);
         }
 
