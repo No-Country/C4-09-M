@@ -32,7 +32,7 @@ public class OrderController {
 
     @GetMapping
     public  ResponseEntity<?> getDetails(){
-        List<com.ecommerce.changuito.dto.OrderDto> results = OrderService.getAll();
+        List<OrderDto> results = OrderService.getAll();
         return ResponseEntity.status(HttpStatus.OK).body(results);
     }
 
