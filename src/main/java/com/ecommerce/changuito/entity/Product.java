@@ -41,7 +41,7 @@ public class Product extends BaseEntity{
     
     private Double retail_price;
 
-    
+    private Integer allowed_price;
     private String status;
     
     private Long stock;
