@@ -1,16 +1,15 @@
 package com.ecommerce.changuito.dto;
 
-import com.ecommerce.changuito.utils.EnumPayment;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.time.LocalDateTime;
 
-@Data
-@AllArgsConstructor
-public class OrderDto {
+import com.ecommerce.changuito.utils.EnumPayment;
 
+import lombok.Data;
+
+@Data
+
+public class OrderDto {
+    
     private Long id;
 
     private Integer cartId;
@@ -23,6 +22,4 @@ public class OrderDto {
 
     private LocalDateTime creationDate;
 
-    public OrderDto() {
-    }
 }
