@@ -12,15 +12,15 @@ export class AdminService {
   constructor(private http: HttpClient) { }
 
   getClients(): Observable<any> {
-    return this.http.get(API_URL + 'clients', { responseType: 'text'});
+    return this.http.get(API_URL + 'clients');
   }
 
   getMerchandisers(): Observable<any> {
-    return this.http.get(API_URL + 'merchandisers', { responseType: 'text'});
+    return this.http.get(API_URL + 'merchandisers');
   }
 
   getProducts(): Observable<any> {
-    return this.http.get(API_URL + 'products/all', { responseType: 'text'});
+    return this.http.get(API_URL + 'products/all');
   }
 
 }

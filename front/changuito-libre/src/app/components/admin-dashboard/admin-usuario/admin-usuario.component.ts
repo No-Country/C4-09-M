@@ -1,3 +1,5 @@
+import { Client } from './../../../model/client';
+import { AdminService } from './../../../services/admin.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminUsuarioComponent implements OnInit {
 
-  constructor() { }
+  clients: Client[] = [];
+
+  constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
+    this.adminService.getClients().subscribe(
+      data => {
+        this.clients = data;
+      }
+    );
   }
 
 }

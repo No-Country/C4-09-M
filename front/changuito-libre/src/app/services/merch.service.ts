@@ -14,8 +14,6 @@ export class MerchService {
 
   constructor(private http: HttpClient, private merchDataService: MerchDataService) { }
 
-  urlBase!: 'https://changuito-libre.herokuapp.com';
-
 
   setMerchs(merchs: Merch[]){
       this.merchs = merchs;

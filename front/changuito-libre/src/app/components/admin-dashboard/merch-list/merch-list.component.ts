@@ -14,6 +14,11 @@ export class MerchListComponent implements OnInit {
   constructor(private merchService:MerchService) { }
 
   ngOnInit(): void {
+    this.merchService.getMerchs().subscribe(
+      data => {
+        this.merchs = data;
+      }
+    );
   }
 
 }

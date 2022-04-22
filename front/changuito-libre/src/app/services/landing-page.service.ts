@@ -15,7 +15,7 @@ export class LandingPageService {
   constructor(private httpClient: HttpClient, private carouselService:ProductCarouselService,
     private productsService:ProductService) { }
 
-  urlBase = "";
+  urlBase = 'https://changuito-libre.herokuapp.com';
 
   getProducts(){
     return this.httpClient.get(this.urlBase);

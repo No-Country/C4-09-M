@@ -16,66 +16,84 @@
       </section>
 
       <h1 class="title is-1 has-text-centered	">Nuevo Producto</h1>
-      <div class="field">
-        <label class="label">Marca</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="Introduce la Marca">
-        </div>
-        <label class="label">Nombre</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="Introduce el Nombre">
-        </div>
-        <label class="label">Descripción</label>
-        <div class="control">
-          <textarea class="textarea" placeholder="Introduce la Descripción del producto"></textarea>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Categoria</label>
-        <div class="control">
-          <div class="select">
-            <select>
-              <option>Selecciona una Categoria</option>
-              <option>Salsas y Condimentos</option>
-              <option>Arroz y Legumbres</option>
-              <option>Infusiones</option>
-            </select>
+      <form [formGroup]="productForm" (ngSubmit)="onSave()">
+        <div class="field">
+          <label class="label">Marca</label>
+          <div class="control">
+            <input class="input"
+            type="text" placeholder="Introduce la Marca"
+            formControlName="brand" >
+          </div>
+          <label class="label">Nombre</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Introduce el Nombre"
+            formControlName="name" >
+          </div>
+          <label class="label">Descripción</label>
+          <div class="control">
+            <textarea class="textarea" placeholder="Introduce la Descripción del producto"
+            formControlName="description" ></textarea>
           </div>
         </div>
-      </div>
 
-      <div class="field">
-        <label class="label">Imagen</label>
-        <div class="control">
-          <input class="imagen" type="file" placeholder="Introduce la Imagen">
+        <div class="field">
+          <label class="label">Categoria</label>
+          <div class="control">
+            <div class="select">
+              <select formControlName="idCategory" name="category">
+                <option [ngValue]="category.idCategory" *ngFor="let category of categories"
+                required>{{category.name}}</option>
+              </select>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="field">
-        <label class="label">Stock disponible</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="Introduce el número de stock disponible">
+        <div class="field">
+          <label class="label">Imagen</label>
+          <div class="control">
+            <input class="imagen" (change)="capturarFile($event)" type="file" placeholder="Introduce la Imagen"
+            formControlName="idImage" >
+          </div>
+          <div *ngIf="previsualizacion">
+            <img width="100px" [src]="previsualizacion" alt="">
+          </div>
         </div>
-      </div>
 
-      <div class="field">
-        <label class="label">Precio</label>
-        <div class="control">
-          <input class="input" type="number" placeholder="Introduce el precio">
+        <div class="field">
+          <label class="label">Stock disponible</label>
+          <div class="control">
+            <input class="input" type="number" placeholder="Introduce el número de stock disponible"
+            formControlName="quantity" >
+          </div>
         </div>
-      </div>
 
-      <div class="field is-grouped">
-        <div class="control">
-          <button class="button is-link">Crear</button>
+        <div class="field">
+          <label class="label">Precio Minorista</label>
+          <div class="control">
+            <input class="input" type="number" placeholder="Introduce el precio"
+            formControlName="retail_price">
+          </div>
         </div>
-        <div class="control">
-          <button class="button is-link is-light">Cancelar</button>
+        <div class="field">
+          <label class="label">Precio Mayorista</label>
+          <div class="control">
+            <input class="input" type="number" placeholder="Introduce el precio"
+            formControlName="wholesaler_price">
+          </div>
         </div>
-      </div>
-      <br/>
+
+        <div class="field is-grouped">
+          <div class="control">
+            <button type="submit" class="button is-link">Crear</button>
+          </div>
+          <div class="control">
+            <button (click)="cancelar()" class="button is-link is-light">Cancelar</button>
+          </div>
+        </div>
+        <br />
+      </form>
     </div>
+
   </div>
 </div>
 <script async type="text/javascript" src="../../../assets/js/dashboard.js"></script>

@@ -1,6 +1,7 @@
 import { Merch } from './../model/merch';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 
 
@@ -13,14 +14,14 @@ export class MerchDataService {
 
   constructor(private http: HttpClient) { }
 
-  urlBase!: 'https://changuito-libre.herokuapp.com';
+  urlBase = 'https://changuito-libre.herokuapp.com';
 
 
-  getMerchs(){
+  getMerchs(): Observable<any>{
     return this.http.get(this.urlBase+'/merchandisers');
   }
 
-  addMerch(merch: Merch){
+  addMerch(merch: Merch): Observable<any>{
     return this.http.post(this.urlBase + '/merchandisers', merch);
   }
 

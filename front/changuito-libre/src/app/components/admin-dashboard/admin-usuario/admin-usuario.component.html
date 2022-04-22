@@ -24,62 +24,25 @@
             <th>ID</th>
             <th>Nombre</th>
             <th>Apellido</th>
+            <th>DNI</th>
+            <th>pais</th>
             <th>Cumpleaños</th>
-            <th>Sexo</th>
+            <th>Username</th>
             <th>Email</th>
-            <th>Password</th>
-            <th>Ventas</th>
-            <th>Compras</th>
             <th>Modificar</th>
-            
+
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th>40666345</th>
-            <td>Daniela</td>
-            <td>Palma</td>
-            <td>24/12/1997</td>
-            <td>Mujer</td>
-            
-            <td>danielapalma@gmail.com</td>
-            <td>Danielapalma123</td>
-            <td>0</td>
-            <td>50</td>
-            <td> <a href="admin-usuario-modificar"
-              class="button is-warning" role="button"><i class="fas fa-pen"></i></a>
-              <button class="button is-danger js-modal-trigger" data-target="modal-js-example">
-                <i class="fas fa-trash-alt"></i>
-              </button></td>
-          </tr>
-          <tr>
-            <th>20956123</th>
-            <td>Martin </td>
-            <td>Díaz</td>
-            <td>02/07/1975</td>
-            <td>Hombre</td>
-             
-            <td>martin.ventas@gmail.com</td>
-            <td>75M@rtin</td>
-            <td>220</td>
-            <td>0</td>
-            <td> <a href="admin-usuario-modificar"
-              class="button is-warning" role="button"><i class="fas fa-pen"></i></a>
-              <button class="button is-danger js-modal-trigger"  data-target="modal-js-example">
-                <i class="fas fa-trash-alt"></i>
-              </button> </td>
-          </tr>
-          <tr>
-            <th>37645980</th>
-            <td>Lourdes</td>
-            <td>Serafini</td>
-            <td>26/02/85</td>
-            <td>Mujer</td>
-            
-            <td>ls_mayorista@gmail.com</td>
-            <td>mayorista1234</td>
-            <td>567</td>
-            <td>0</td>
+          <tr *ngFor="let client of clients">
+            <th>{{client.idClient}}</th>
+            <td>{{client.firstname}}</td>
+            <td>{{client.lastname}}</td>
+            <td>{{client.dni}}</td>
+            <td>{{client.country}}</td>
+            <td>{{client.birthday}}</td>
+            <td>{{client.user.username}}</td>
+            <td>{{client.email}}</td>
             <td> <a href="admin-usuario-modificar"
               class="button is-warning" role="button"><i class="fas fa-pen"></i></a>
               <button class="button is-danger js-modal-trigger" data-target="modal-js-example">

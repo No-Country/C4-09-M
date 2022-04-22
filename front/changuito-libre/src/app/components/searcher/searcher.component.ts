@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/model/product';
 import { ProductDataService } from 'src/app/product-data.service';
-import { Product } from './product';
 
 @Component({
   selector: 'app-searcher',
@@ -16,7 +16,7 @@ export class SearcherComponent implements OnInit {
   constructor(private productsDataService: ProductDataService) { }
 
   ngOnInit(): void {
-    this.productsDataService.products.subscribe( products => this.products = products);
+    this.productsDataService._products.subscribe( products => this.products = products);
 
   }
 

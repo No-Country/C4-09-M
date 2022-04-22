@@ -11,16 +11,16 @@
   </thead>
   <tbody>
     <ng-container *ngFor="let product of products">
-      <tr *ngIf="product.stock>0" [ngClass]="{'deleted':product.deleted}">
+      <tr *ngIf="product.stock>0" >
         <td class="subtitle mb-2 has-text-weight-bold">{{product.name}}</td>
-        <td>{{product.price | currency:'ARS'}}</td>
+        <td>{{product.wholesaler_price | currency:'ARS'}}</td>
         <td class="subtitle has-text-info mb-0 has-text-weight-bold">{{product.stock}}</td>
         <td>
           <div class="input-group input-group-sm mb-3">
-            <button type="button" class="btn btn-light btn-sm" (click)="downQuantity(product)">-</button>
-            <input class="form-control form-control-sm" type="number" [(ngModel)]="product.quantity"
-              (focusout)="verifyProductQuantity(product)" />
-            <button type="button" class="btn btn-light btn-sm" (click)="upQuantity(product)">+</button>
+            <button type="button" class="btn btn-light btn-sm" >-</button>
+            <input class="form-control form-control-sm" type="number" [(ngModel)]="product.stock"
+               />
+            <button type="button" class="btn btn-light btn-sm">+</button>
           </div>
         </td>
       </tr>
