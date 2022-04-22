@@ -104,7 +104,7 @@ public class ProductServiceImpl implements ProductService {
         if (productDto.getRetail_price() == null) {
             throw new ErrorService("El precio minorista del producto no debe ser nulo o estar vacio");
         }
-        if (productDto.getQuantity() == null) {
+        if (productDto.getStock() == null) {
             throw new ErrorService("La cantidad del producto no debe ser nulo o estar vacio");
         }
 
