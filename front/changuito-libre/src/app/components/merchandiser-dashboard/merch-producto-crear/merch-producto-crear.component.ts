@@ -34,10 +34,9 @@ export class MerchProductoCrearComponent implements OnInit {
       idImage: ['', Validators.required],
       wholesaler_price: ['', Validators.required],
       retail_price: ['', Validators.required],
-      quantity: ['', Validators.required],
+      stock: ['', Validators.required],
       status: ['', Validators.required],
       idCategory: ['', Validators.required],
-      stock: ['', Validators.required]
     });
 
     this.categoryService.getCategories().subscribe(data => {
