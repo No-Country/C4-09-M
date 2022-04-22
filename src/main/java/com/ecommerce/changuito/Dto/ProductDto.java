@@ -19,7 +19,7 @@ public class ProductDto {
     private Long id_image;
     private Double wholesaler_price;
     private Double retail_price;
-    private Integer quantity;
+    private Integer stock;
     private String status;
     private CategoryDto categoryDto;
 }

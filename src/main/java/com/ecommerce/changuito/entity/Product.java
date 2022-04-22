@@ -44,7 +44,7 @@ public class Product extends BaseEntity{
     
     private String status;
     
-    private Long stock;
+    private Integer stock;
     
     @JsonIgnore
     @ManyToMany
