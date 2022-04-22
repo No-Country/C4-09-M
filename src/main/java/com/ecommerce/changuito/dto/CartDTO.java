@@ -10,7 +10,7 @@ import java.util.Set;
 @Data
 
 
-public class CartDTO {
+public class CartDto {
 
     private Long id;
 
@@ -24,7 +24,7 @@ public class CartDTO {
 
     private Integer merchandiserId;
 
-    private Integer clienteId;
+    private Integer clientId;
 
     private Set<Product> products;
 

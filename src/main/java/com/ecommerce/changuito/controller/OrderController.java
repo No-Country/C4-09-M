@@ -2,9 +2,8 @@ package com.ecommerce.changuito.controller;
 
 import java.util.List;
 
-import com.ecommerce.changuito.dto.OrderDTO;
 import com.ecommerce.changuito.service.OrderService;
-
+import com.ecommerce.changuito.dto.OrderDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,20 +19,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(originPatterns = "*")
-@RequestMapping("details")
+@RequestMapping("orders")
 public class OrderController {
     @Autowired
     private OrderService OrderService;
 
     @PostMapping
-    public ResponseEntity<?> addCart(@RequestBody OrderDTO dto){
-       OrderDTO result = OrderService.add(dto);
+    public ResponseEntity<?> addCart(@RequestBody OrderDto dto){
+       OrderDto result = OrderService.add(dto);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @GetMapping
     public  ResponseEntity<?> getDetails(){
-        List<OrderDTO> results = OrderService.getAll();
+        List<OrderDto> results = OrderService.getAll();
         return ResponseEntity.status(HttpStatus.OK).body(results);
     }
 
@@ -44,8 +43,8 @@ public class OrderController {
    }
 
    @PutMapping("{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody OrderDTO dto){
-        OrderDTO result = OrderService.update(id, dto);
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody OrderDto dto){
+        OrderDto result = OrderService.update(id, dto);
         return ResponseEntity.status(HttpStatus.OK).body(result);
    }
 

@@ -1,8 +1,7 @@
 package com.ecommerce.changuito.controller;
 
-import com.ecommerce.changuito.dto.CartDTO;
 import com.ecommerce.changuito.service.CartService;
-
+import com.ecommerce.changuito.dto.CartDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,8 +24,8 @@ public class CartController {
     private CartService service;
 
         @PostMapping
-        public ResponseEntity<?> addCart(@RequestBody CartDTO dto){
-           CartDTO result = service.add(dto);
+        public ResponseEntity<?> addCart(@RequestBody CartDto dto){
+          CartDto result = service.add(dto);
             return ResponseEntity.status(HttpStatus.OK).body(result);
         }
 
@@ -42,8 +41,8 @@ public class CartController {
        }
     
        @PutMapping("{id}")
-        public ResponseEntity<?> update(@PathVariable Long id, @RequestBody CartDTO dto){
-            CartDTO result = service.update(id, dto);
+        public ResponseEntity<?> update(@PathVariable Long id, @RequestBody CartDto dto){
+            CartDto result = service.update(id, dto);
             return ResponseEntity.status(HttpStatus.OK).body(result);
        }
 }

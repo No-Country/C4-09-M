@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 
-public class OrderDTO {
+public class OrderDto {
     
     private Long id;
 

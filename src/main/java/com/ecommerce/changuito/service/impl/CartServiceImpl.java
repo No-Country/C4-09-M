@@ -4,8 +4,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.transaction.Transactional;
-
-import com.ecommerce.changuito.dto.CartDTO;
+import javax.validation.Valid;
+import com.ecommerce.changuito.dto.CartDto;
 import com.ecommerce.changuito.entity.CartEntity;
 import com.ecommerce.changuito.mapper.CartMapper;
 import com.ecommerce.changuito.repository.CartRepository;
@@ -24,18 +24,18 @@ public class CartServiceImpl implements CartService {
 
     @Override
     @Transactional
-    public CartDTO add(CartDTO dto) {
+    public CartDto add(@Valid CartDto dto) {
         CartEntity entity = cartMapper.cartDto2Entity(dto);
         entity.setUpdateDate(LocalDateTime.now());
         entity.setCreationDate(LocalDateTime.now());
         entity = cartRepository.save(entity);
-        CartDTO result = cartMapper.cartEntity2Dto(entity);
+        CartDto result = cartMapper.cartEntity2Dto(entity);
         return result;
     }
 
     @Override
-    public List<CartDTO> getAll() {
-        List<CartDTO> results;
+    public List<CartDto> getAll() {
+        List<CartDto> results;
         List<CartEntity> entities = cartRepository.findAll();
         results = cartMapper.cartEntityList2DtosList(entities);
         return results;
@@ -49,12 +49,12 @@ public class CartServiceImpl implements CartService {
 
     @Override
     @Transactional
-    public CartDTO update(Long id, CartDTO dto) {
+    public CartDto update(Long id, CartDto dto) {
         CartEntity entity = cartRepository.getById(id);
         if (entity != null){
             entity = cartMapper.cartDto2Entity(dto);
             entity = cartRepository.save(entity);
-            CartDTO result = cartMapper.cartEntity2Dto(entity);
+            CartDto result = cartMapper.cartEntity2Dto(entity);
             return  result;
         }else{
             return null;

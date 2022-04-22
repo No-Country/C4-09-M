@@ -9,7 +9,7 @@ import org.hibernate.annotations.Where;
 import lombok.Data;
 
 @Entity
-@Table(name="product")
+@Table(name="ticket")
 @SQLDelete(sql = "UPDATE product SET deleted = true WHERE id=?")
 @Where(clause = "deleted=false")
 @Data

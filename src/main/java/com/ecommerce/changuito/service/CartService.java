@@ -1,13 +1,11 @@
 package com.ecommerce.changuito.service;
-
+import com.ecommerce.changuito.dto.CartDto;
 import java.util.List;
 
-import com.ecommerce.changuito.dto.CartDTO;
-
 public interface CartService {
-    CartDTO add(CartDTO dto);
-    List<CartDTO> getAll();
+    CartDto add(CartDto dto);
+    List<CartDto> getAll();
     void deleteCart(Long id);
-    CartDTO update(Long id, CartDTO dto);
+    CartDto update(Long id, CartDto dto);
     
 }
