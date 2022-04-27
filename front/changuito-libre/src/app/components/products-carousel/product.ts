@@ -1,10 +1,10 @@
 export interface Product{
     name: string;
-    style: string;
-    price: number;
+   // style: string;
+    wholesaler_price: number;
     stock: number;
-    image: string;
+   // image: string;
     quantity: number;
-    deleted: boolean;
+  //  deleted: boolean;
 
 }

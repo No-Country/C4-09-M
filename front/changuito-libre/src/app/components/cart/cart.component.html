@@ -10,17 +10,17 @@
       <tbody>
         <ng-container *ngFor="let product of products">
           <tr>
-            <td>{{product.name}}</td>
+ <!--       <td>{{product.name}}</td>
             <td>{{product.quantity}}</td>
-            <td>{{product.price | currency:'ARS'}}</td>
-          </tr>
+            <td>{{product.wholesaler_price | currency:'ARS'}}</td>
+          </tr> -->
         </ng-container>
       </tbody>
 </table>
 
 <div class="mb-10 is-flex is-justify-content-space-between is-align-items-center">
   <span class="title is-size-5 has-text-black has-text-weight-bold">Total</span>
-  <span class="title is-size-5 mb-0 has-text-black has-text-weight-bold">{{total() | currency: 'ARS'}}</span>
+<!--  <span class="title is-size-5 mb-0 has-text-black has-text-weight-bold">{{total() | currency: 'ARS'}}</span>-->
 </div>
 <a href="pagar"><button class=" button zis-primary is-fullwidth">Pagar</button></a>
 <button (click)="emptyCart()" class=" button zis-primary is-fullwidth" href="">Borrar Changuito</button>
