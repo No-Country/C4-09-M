@@ -1,6 +1,6 @@
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registration-users',
@@ -17,25 +17,24 @@ export class RegistrationUsersComponent implements OnInit {
   constructor(private authService: AuthService, private formBuilder: FormBuilder) { }
 
   registrerClientForm = this.formBuilder.group({
-    firstname: [''],
-    lastname: [''],
-    username: [''],
-    password: [''],
-    email: [''],
-    birthday: [''],
-    dni: ['']
-
+    firstname: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+    lastname: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+    username: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+    password: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+    email: ['', [Validators.required, Validators.email]],
+    birthday: ['', [Validators.required]],
+    dni: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]]
   });
 
   registrerMerchForm = this.formBuilder.group({
-    name: [''],
-    lastname: [''],
-    username: [''],
-    password: [''],
-    email: [''],
-    street: [''],
-    dni: [''],
-    cuit:['']
+    name: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+    lastname: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+    username: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+    password: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+    email: ['', [Validators.required, Validators.email]],
+    street: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+    dni: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+    cuit:['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]]
 
   });
 

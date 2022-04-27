@@ -1,7 +1,7 @@
 export interface Product{
     name: string;
     style: string;
-    price: number;
+   wholesaler_price: number;
     stock: number;
     image: string;
     quantity: number;

@@ -2,18 +2,26 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Product } from './model/product';
+import { environment } from 'src/environments/environment';
 
 
+const URL = environment.baseUrl + 'product/';
 @Injectable({
   providedIn: 'root'
 })
 export class ProductDataService {
 
-  private products : Product[] = [];
-  private _productsSubjects : BehaviorSubject<Product[]> = new BehaviorSubject(this.products);
-  public _products : Observable<Product[]> = this._productsSubjects.asObservable();
+    private products : Product[] = [];
+    private _productsSubjects : BehaviorSubject<Product[]> = new BehaviorSubject(this.products);
+    public _products : Observable<Product[]> = this._productsSubjects.asObservable();
+  
 
   constructor(private http: HttpClient) {
+
+  //  this.http.get<Product[]>(URL).subscribe(data => {
+  //    this._products.push(...data);
+   // });
+
   }
 
   urlBase = 'https://changuito-libre.herokuapp.com/product/';
@@ -26,6 +34,8 @@ export class ProductDataService {
   getAllPage(){
     return this.http.get(this.urlBase+'paged');
   }
+
+
 
   saveProduct(product: Product){
     return this.http.post(this.urlBase+'save', product);

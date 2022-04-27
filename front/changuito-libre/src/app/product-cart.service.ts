@@ -16,7 +16,7 @@ export class ProductCartService {
   addToCart(product:Product){
     let index = this._products.findIndex(p => p.name === product.name);
     if(index === -1)
-      this._products.push(Object.assign({}, product));
+      this._products.push(product);
     else
       this._products[index].quantity = product.quantity;
     if(product.quantity == 0){
@@ -25,6 +25,6 @@ export class ProductCartService {
   }
 
   emptyCart(){
-    this._products.splice(0, this._products.length);
+  this._products.splice(0, this._products.length);
   }
 }

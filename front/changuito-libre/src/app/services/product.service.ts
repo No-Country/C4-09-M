@@ -3,8 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Product } from '../model/product';
+import { environment } from 'src/environments/environment';
 
-const URL = 'https://changuito-libre.herokuapp.com/product';
+const URL = environment.baseUrl + 'product/';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,8 +20,6 @@ export class ProductService {
       this.products.push(...data);
     });
   }
-
-
 
   setProduct(products: Product[]) {
     this.products = products;
@@ -39,26 +38,26 @@ export class ProductService {
   }
 
   updateProduct(id:number, product: Product){
-    const productMod = this.products.find(product => product.idProduct == id)!;
-    productMod.idProduct = product.idProduct;
+    const productMod = this.products.find(product => product.id == id)!;
+    productMod.id = product.id;
     productMod.brand = product.brand;
     productMod.description = product.description;
-    productMod.idCategory = product.idCategory;
+    productMod.categoryDto = product.categoryDto;
     productMod.idImage = product.idImage;
     productMod.wholesaler_price = product.wholesaler_price;
     productMod.name = product.name;
-    productMod.cart = product.cart;
+  //  productMod.cart = product.cart;
     productMod.retail_price = product.retail_price;
     productMod.status = product.status;
     productMod.stock = product.stock;
-    productMod.content = product.content;
+    //productMod.content = product.content;
 
     return this.productDataService.updateProduct(id,product);
 
   }
 
   deleteProduct(id:number, product: Product){
-    const index = this.products.findIndex(product => product.idProduct == id);
+    const index = this.products.findIndex(product => product.id == id);
     this.products.splice(index,1);
     this.productDataService.deleteProdutc(id)
   }
