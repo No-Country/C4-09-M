@@ -1,9 +1,9 @@
 package com.ecommerce.changuito.controller;
 
-import java.util.List;
+import java.util.*;
 
-import com.ecommerce.changuito.service.OrderService;
-import com.ecommerce.changuito.dto.OrderDto;
+import com.ecommerce.changuito.dto.SaleDto;
+import com.ecommerce.changuito.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,34 +19,34 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(originPatterns = "*")
-@RequestMapping("orders")
-public class OrderController {
+@RequestMapping("sales")
+public class SaleController {
     @Autowired
-    private OrderService OrderService;
+    private SaleService SaleService;
 
     @PostMapping
-    public ResponseEntity<?> addCart(@RequestBody OrderDto dto){
-       OrderDto result = OrderService.add(dto);
+    public ResponseEntity<?> addCart(@RequestBody SaleDto dto){
+        SaleDto result = SaleService.add(dto);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @GetMapping
     public  ResponseEntity<?> getDetails(){
-        List<OrderDto> results = OrderService.getAll();
+        List<SaleDto> results = SaleService.getAll();
         return ResponseEntity.status(HttpStatus.OK).body(results);
     }
 
     @DeleteMapping("{id}")
     public ResponseEntity<?> deleteById(@PathVariable Long id){
-        OrderService.deleteOrder(id);
+        SaleService.deleteSale(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-   }
+    }
 
-   @PutMapping("{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody OrderDto dto){
-        OrderDto result = OrderService.update(id, dto);
+    @PutMapping("{id}")
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody SaleDto dto){
+        SaleDto result = SaleService.update(id, dto);
         return ResponseEntity.status(HttpStatus.OK).body(result);
-   }
+    }
 
-    
+
 }
